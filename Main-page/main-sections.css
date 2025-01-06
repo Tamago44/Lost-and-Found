@@ -42,7 +42,10 @@
 }
 
 .right-section .searchbar .search-button i {
-  color: #6a6d71;
+  color: #ffffff;
+}
+.searchbar input::placeholder{
+  color: white;
 }
 
 .right-section .searchbar .search-button i:hover {

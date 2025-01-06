@@ -18,7 +18,8 @@ a{
 }
 body {
     height: 100vh;
-    padding-top:100px ;
+    padding-top: 100px;
+    background: linear-gradient(135deg, #ebe8e8, #de0204, #940000);
 }
 
 /* Header*/

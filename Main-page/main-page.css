@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+    background: linear-gradient(135deg, #ebe8e8, #de0204, #940000);
 }
 
 /* Header*/
@@ -335,7 +335,7 @@ header {
   
   /* 2xl */
  @media (max-width: 1536px){
-    
+
  }
   /* xl */
   @media (max-width: 1280px) {
