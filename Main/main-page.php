@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Default role
+$role = 'guest';
+
+// Check if logged in
+if (isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -109,10 +121,16 @@
                                     <div class="dropdown-item">
                                           <img src="/Front-End/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
                                                 class="profile-pic">
-                                          <span>Guest</span>
+                                          <span>  <?= htmlspecialchars($role) ?> </span>
                                     </div>
-                                    <a href="/Front-End/Lost/report-page.html" class="dropdown-item">Report</a>
-                                    <a href="/Front-End/Registration/html/login.html" class="dropdown-item">Log Out</a>
+                                    
+                                    </div>
+                                    <a href="../Report-page/report-page.html" class="dropdown-item">Report</a>
+                                    <?php if ($role ==='user'): ?>
+                                          <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+                                    <?php elseif ($role === 'guest' || ''): ?>
+                                          <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                                    <?php endif; ?>
                               </div>
                         </div>
                   </div>
