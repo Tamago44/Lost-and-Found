@@ -3,7 +3,7 @@
 
 // Database connection
 $host = 'localhost';
-$dbname = 'lost_and_found';
+$dbname = 'lostandfounddb';
 $username = 'root'; // Replace with your database username
 $password = ''; // Replace with your database password
 

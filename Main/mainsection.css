@@ -235,49 +235,58 @@
   flex-grow: 1;
   overflow: auto;
 }
-.close-message-buttons{
+.close-message-buttons {
   display: flex;
+  flex-wrap: wrap; /* Allow buttons to wrap if content is long */
   align-items: center;
   justify-content: space-between;
+  gap: 10px; /* Adds spacing between buttons */
+  padding: 10px;
+  width: 100%; /* Ensures the container expands */
+  max-width: 100%; /* Prevents overflow */
+  box-sizing: border-box;
 }
-.close-message-buttons .close-button {
+
+.close-message-buttons .close-button,
+.close-message-buttons .message-button {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  align-items: center; /* Center the button vertically */
   background-color: #F9A602;
-  height: 40px;
-  width: 100px;
-  padding: 8px 0px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
   border: none;
-  transition: background-color 0.5s ease;
-  border: 2px solid #F9A602;  
-  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  white-space: nowrap; /* Prevent button text wrapping */
+  max-width: 100%; /* Prevents button from overflowing */
 }
-.close-message-buttons .close-button:hover{
+
+.close-message-buttons .close-button:hover {
   background-color: transparent;
   color: #3a53c3;
   border: 2px solid #F9A602;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.close-message-buttons .message-button{
+
+.close-message-buttons .message-button {
   background-color: #496afb;
   color: white;
-  height: 40px;
-  width: 100px;
-  padding: 8px 0px;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  border: none;
-  transition: background-color 0.5s ease; 
-  border-radius: 0;
+  transition: background-color 0.5s ease;
 }
-.close-message-buttons .message-button:hover{
+
+.close-message-buttons .message-button:hover {
   background-color: transparent;
   color: #282828;
   border: 2px solid #496afb;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+
 .message-overlay {
   display: none;
   align-items: center;

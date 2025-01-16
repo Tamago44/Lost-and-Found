@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "lostandfounddb";
+$dbname = "chat_system";
 
 // Database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,13 +11,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
 // Sign-Up Logic
 if (isset($_POST['signUp'])) {
     $name = $_POST['name'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
-    $role = 'user';
+    $role = 'admin';
 
     // Input validation
     if (empty($name) || empty($email) || empty($password)) {
@@ -26,14 +27,11 @@ if (isset($_POST['signUp'])) {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die("Invalid email format.");
     }
-    //if($password !== $confirm_password) {
-    //    die("Passwords do not match!");
-    //}
     if(strlen($password) < 8 || !preg_match('/\d/', $password)) {
         die("Password must be at least 8 characters long and have at least 1 number!");
     }
 
-
+    // Hash the password
     $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
     // Check if email already exists
@@ -48,19 +46,49 @@ if (isset($_POST['signUp'])) {
     }
     $stmt_check->close();
 
-    // Insert new user
+    // Insert new user into userdetails table
     $sql = "INSERT INTO userdetails (name, email, hashed_password, roles) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
 
     if ($stmt->execute()) {
-        echo "Sign-up successful! <a href='../Main/main-page.php'>Click to continue...</a>";
+        // Generate token for new user
+        $token = bin2hex(random_bytes(16));
+        $_SESSION['token'] = $token;
+    
+        // Get the last inserted user id from the userdetails table
+        $user_id = $conn->insert_id;
+    
+        // Check if the user ID already exists in the users table
+        $stmt_check_user = $conn->prepare("SELECT id FROM users WHERE id = ?");
+        $stmt_check_user->bind_param("i", $user_id);
+        $stmt_check_user->execute();
+        $stmt_check_user->store_result();
+    
+        if ($stmt_check_user->num_rows > 0) {
+            // The ID already exists, handle this case accordingly (you can either skip or update)
+            die("This user ID already exists in the users table.");
+        }
+    
+        // Insert into the second table (users), using the user ID from userdetails table
+        $stmt = $conn->prepare("INSERT INTO users (id, username, role, token) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("isss", $user_id, $name, $role, $token);
+    
+        if ($stmt->execute()) {
+            echo "Sign-up successful! <a href='../Main/main-page.php'>Click to continue...</a>";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+    
+        $stmt_check_user->close();
     } else {
         echo "Error: " . $stmt->error;
     }
+    
 
     $stmt->close();
 }
+
 
 // Sign-In Logic
 if (isset($_POST['signIn'])) {
@@ -80,11 +108,21 @@ if (isset($_POST['signIn'])) {
     if ($row = $result->fetch_assoc()) {
         if (password_verify($password, $row['hashed_password'])) {
             session_start();
+            
+            $_SESSION['name'] = $row['name'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['role'] = $row['roles']; // Pass user's role (e.g., 'user' or 'admin') from the database
-            $_SESSION['user_id'] = $id;
-            
-            echo "Login successful! <a href='../Main/main-page.php'>Click here to continue...</a>";
+            //$_SESSION['user_id'] = $row['id'];
+
+            $token = bin2hex(random_bytes(16));
+            $stmt = $conn->prepare("UPDATE users SET token = ? WHERE id = ?");
+            $stmt->bind_param("si", $token, $row['id']); // Ensure id is properly bound as integer
+            $stmt->execute();
+
+            $_SESSION['token'] = $token;
+
+            // Remove the INSERT query as you're updating the existing record in users table
+            header("Location: ../Main/main-page.php?token=$token");
         } else {
             echo "Incorrect password. <a href='login.html'>Please try again!</a>";
         }
@@ -94,6 +132,7 @@ if (isset($_POST['signIn'])) {
 
     $stmt->close();
 }
+
 
 // Forgot Password Logic
 if (isset($_POST["forgotPassword"])) {

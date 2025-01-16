@@ -1,7 +1,7 @@
 <?php
 // Database connection
 $host = 'localhost';
-$dbname = 'lost_and_found';
+$dbname = 'lostandfounddb';
 $username = 'root'; // Replace with your database username
 $password = ''; // Replace with your database password
 
@@ -39,7 +39,7 @@ foreach ($items as $item) {
         </div> 
         <div class="close-message-buttons">
            <button class="close-button" id="close">Close</button>                                                       
-          <button class="message-button">Message</button>                                                     
+          <button class="message-button" >Message</button>                                                     
         </div>                                             
     <?php
 }

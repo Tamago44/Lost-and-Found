@@ -7,6 +7,11 @@ $role = 'guest';
 // Check if logged in
 if (isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
+    $token = $_SESSION['token'] ?? null;
+}
+
+if(isset($_SESSION['name'])) {
+      $name = $_SESSION['name'] ?? null;
 }
 ?>
 
@@ -35,7 +40,7 @@ if (isset($_SESSION['role'])) {
       <header>
             <nav class="navbar">
                   <div class="logo">
-                        <a href="/Front-End/Main/main-page.php"><img class="logo-image" src="/Front-End/Reference/ctu-danao-logo.png"
+                        <a href="../Main/main-page.php"><img class="logo-image" src="../Reference/ctu-danao-logo.png"
                                     alt="CTU-Logo">
                         </a>
 
@@ -46,7 +51,7 @@ if (isset($_SESSION['role'])) {
 
                   </div>
                   <div class="right-side-nav">
-                        <div class="home me-5"><a href="/Front-End/Main/main-page.php" class="nav-link"><i
+                        <div class="home me-5"><a href="../Main/main-page.php" class="nav-link"><i
                                           class="fa-solid fa-house fs-5"></i></a>
                         </div>
 
@@ -54,9 +59,9 @@ if (isset($_SESSION['role'])) {
                               <div class="nav-link">ITEMS &#x25BC;</div>
 
                               <ul class="dropdown">
-                                    <li><a href="/Front-End/Lost/Lost-page.php" target="_blank"><button
+                                    <li><a href="../Lost/Lost-page.php" target="_blank"><button
                                                       class="items-lost-button">Lost</button></a></li>
-                                    <li><a href="/Front-End/Found/Found-page.php" target="_blank"><button
+                                    <li><a href="../Found/Found-page.php" target="_blank"><button
                                                       class="items-found-button">Found</button></a>
                                     </li>
                               </ul>
@@ -73,7 +78,7 @@ if (isset($_SESSION['role'])) {
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -85,7 +90,7 @@ if (isset($_SESSION['role'])) {
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -97,7 +102,7 @@ if (isset($_SESSION['role'])) {
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -119,18 +124,27 @@ if (isset($_SESSION['role'])) {
 
                               <div class="dropdown-content">
                                     <div class="dropdown-item">
-                                          <img src="/Front-End/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
                                                 class="profile-pic">
-                                          <span>  <?= htmlspecialchars($role) ?> </span>
+                                                <?php if ($role ==='user' || $role === 'admin'): ?>
+                                                <span>  <?= htmlspecialchars($name) ?> </span>                                    
+                                          <?php elseif ($role === 'guest' || ''): ?>
+                                          <span>  <?= htmlspecialchars($role) ?> </span>  
+                                          <?php endif; ?>                                        
                                     </div>
-                                    
-                                    </div>
-                                    <a href="../Report-page/report-page.html" class="dropdown-item">Report</a>
-                                    <?php if ($role ==='user'): ?>
+                                    <?php if ($role ==='user' || $role === 'admin'): ?>
+                                    <a href="../Report/report-page.php" class="dropdown-item">Report</a>
+                                    <?php elseif ($role === 'guest' || ''): ?>
+                                    <a href="../Login/login-page.html" class="dropdown-item" onclick="alert('Please login to create report.'); return false;">Report</a>
+                                    <?php endif; ?>
+
+                                    <?php if ($role ==='user' || $role === 'admin'): ?>
                                           <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
                                     <?php elseif ($role === 'guest' || ''): ?>
                                           <a href="../Registration/login.html" class="dropdown-item">Log In</a>
                                     <?php endif; ?>
+                                    </div>
+                                    
                               </div>
                         </div>
                   </div>
@@ -163,7 +177,7 @@ if (isset($_SESSION['role'])) {
                         </div>
                         <div class="message-overlay" id="message-overlay">
                         </div>
-                        <a href="/Front-End/Lost/Lost-page.php" target="_blank" class="view-more-button-link">
+                        <a href="../Lost/Lost-page.php" target="_blank" class="view-more-button-link">
                               <button class="view-more-button">VIEW MORE</button>
                         </a>
                   </div>
@@ -185,7 +199,7 @@ if (isset($_SESSION['role'])) {
                                     </div>
                               </div>
                         </div>
-                        <a href="/Front-End/Found/Found-page.php" target="_blank" class="view-more-button-link">
+                        <a href="../Found/Found-page.php" target="_blank" class="view-more-button-link">
                               <button class="view-more-button">VIEW MORE</button>
                         </a>
                   </div>
@@ -218,11 +232,11 @@ if (isset($_SESSION['role'])) {
       <!-- For main page js navigation -->
       <script src="mainpage.js"></script>
       <!-- CLOCK JS -->
-      <script src="/Front-End/Lost/clock.js"></script>
+      <script src="../Lost/clock.js"></script>
       <!-- DATE JS -->
-      <script src="/Front-End/Lost/date.js"></script>
+      <script src="../Lost/date.js"></script>
       <!-- GET REPORT -->
-      <script src="/Front-End/Lost/get-report.js"></script>
+      <script src="../Lost/get-report.js"></script>
       <!-- Full Details -->
        <script src="displayFullDetails.js"></script>
 </body>

@@ -1,9 +1,16 @@
 <?php
 // Database connection
 $host = 'localhost';
-$dbname = 'lost_and_found';
+$dbname = 'lostandfounddb';
 $username = 'root'; // Replace with your database username
 $password = ''; // Replace with your database password
+
+$role = 'guest';
+
+// Check if logged in
+if (isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+}
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

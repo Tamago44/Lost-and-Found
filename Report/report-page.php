@@ -7,7 +7,7 @@
     <!-- Boostrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <!-- REPORT CSS -->
-    <link rel="stylesheet" href="/Front-End/css/report-page.css"> 
+    <link rel="stylesheet" href="report-page.css"> 
    
     <!-- FONT AWESOME ICON -->
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
@@ -16,8 +16,8 @@
       <header>
             <nav class="navbar">
                   <div class="logo">
-                        <a href="/Front-End/Main/main-page.php"><img class="logo-image"
-                                    src="/Front-End/Reference/ctu-danao-logo.png" alt="CTU-Logo">
+                        <a href="../Main/main-page.php"><img class="logo-image"
+                                    src="../Reference/ctu-danao-logo.png" alt="CTU-Logo">
                         </a>
 
                         <div>
@@ -27,7 +27,7 @@
 
                   </div>
                   <div class="right-side-nav">
-                        <div class="home me-5"><a href="/Front-End/Main/main-page.php" class="nav-link"><i
+                        <div class="home me-5"><a href="../Main/main-page.php" class="nav-link"><i
                                           class="fa-solid fa-house fs-5"></i></a>
                         </div>
 
@@ -35,8 +35,8 @@
                               <div class="nav-link">ITEMS &#x25BC;</div>
 
                               <ul class="dropdown">
-                                    <li><a href="/Front-End/Lost/Lost-page.php" target="_blank"><button class="items-lost-button">Lost</button></a></li>
-                                    <li><a href="/Front-End/Found/Found-page.php" target="_blank"><button class="items-found-button">Found</button></a>
+                                    <li><a href="../Lost/Lost-page.php" target="_blank"><button class="items-lost-button">Lost</button></a></li>
+                                    <li><a href="../Found/Found-page.php" target="_blank"><button class="items-found-button">Found</button></a>
                                     </li>
                               </ul>
 
@@ -52,7 +52,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -64,7 +64,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -76,7 +76,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -98,13 +98,13 @@
 
                               <div class="dropdown-content">
                                     <div class="dropdown-item">
-                                          <img src="/Front-End/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
                                                 class="profile-pic">
                                           <span>Guest</span>
                                     </div>
-                                    <a href="/Front-End/Lost/report-page.html"
+                                    <a href="../Lost/report-page.html"
                                           class="dropdown-item">Report</a>
-                                    <a href="/Front-End/Registration/html/Log-in.html" class="dropdown-item">Log Out</a>
+                                    <a href="../Registration/html/Log-in.html" class="dropdown-item">Log Out</a>
                               </div>
                         </div>
                   </div>
@@ -115,6 +115,7 @@
             <h1 class="text-center mb-4">Report Lost or Found Item</h1>
             <form action="submit.php" method="POST" class="needs-validation" novalidate>
                 <div class="mb-3">
+                  <p id="error" style="display: block; color: red;">FILL ALL FIELDS!</p>
                     <label for="itemType" class="form-label">Item Type:</label>
                     <select class="form-select" name="itemType" id="itemType" required>
                         <option value="" disabled selected>Select an option</option>
@@ -130,11 +131,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="whenLost" class="form-label">When Reported:</label>
-                    <input type="text" class="form-control" name="whenLost" id="whenLost" placeholder="E.g., Yesterday at 10 AM">
+                    <input type="text" class="form-control" name="whenLost" id="whenLost" placeholder="E.g., Yesterday at 10 AM" required>
                 </div>
                 <div class="mb-3">
                     <label for="whereLost" class="form-label">Where Reported:</label>
-                    <input type="text" class="form-control" name="whereLost" id="whereLost" placeholder="E.g., Library">
+                    <input type="text" class="form-control" name="whereLost" id="whereLost" placeholder="E.g., Library" required>
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description:</label>
@@ -150,7 +151,7 @@
             </form>
         </main>
     
-    <script src="/Front-End/js/report-page.js"></script>
-    <script src="/Front-End/js/report-submit.js"></script> <!-- Link to your JavaScript file -->
+    <script src="report-page.js"></script>
+    <script src="report-submit.js"></script> <!-- Link to your JavaScript file -->
 </body>
 </html>

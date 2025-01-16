@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Default role
+$role = 'guest';
+
+// Check if logged in
+if (isset($_SESSION['role'])) {
+    $role = $_SESSION['role'];
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -24,8 +35,8 @@
       <header>
             <nav class="navbar">
             <div class="logo">
-                        <a href="/Front-End/Main/main-page.php"><img class="logo-image"
-                                    src="/Front-End/Reference/ctu-danao-logo.png" alt="CTU-Logo">
+                        <a href="../Main/main-page.php"><img class="logo-image"
+                                    src="../Reference/ctu-danao-logo.png" alt="CTU-Logo">
                         </a>
 
                         <div>
@@ -35,15 +46,15 @@
 
                   </div>
                   <div class="right-side-nav">
-                        <div class="home me-5"><a href="/Front-End/Main/main-page.php" class="nav-link"><i class="fa-solid fa-house fs-5"></i></a>
+                        <div class="home me-5"><a href="../Main/main-page.php" class="nav-link"><i class="fa-solid fa-house fs-5"></i></a>
                         </div>
 
                         <div class="items me-5"><a href="" class="nav-link">ITEMS &#x25BC;</a>
 
                         <ul class="dropdown">
-                                    <li><a href="/Front-End/Lost/Lost-page.php" target="_blank"><button
+                                    <li><a href="../Lost/Lost-page.php" ><button
                                                       class="items-lost-button">Lost</button></a></li>
-                                    <li><a href="/Front-End/Found/Found-page.php" target="_blank"><button
+                                    <li><a href="../Found/Found-page.php" ><button
                                                       class="items-found-button">Found</button></a>
                                     </li>
                               </ul>
@@ -60,7 +71,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -72,7 +83,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -84,7 +95,7 @@
                                     <div class="notification-container-renderer">
 
                                           <div class="notification-content-container">
-                                                <img src="/Front-End/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                <img src="../Reference/ctu-danao-logo.png" alt="Profile Picture"
                                                       class="notification-profile-pic">
                                                 <div class="notification-content-item">
                                                       <span class="notification-username">User Name</span>
@@ -106,12 +117,16 @@
 
                               <div class="dropdown-content">
                                     <div class="dropdown-item">
-                                          <img src="/Front-End/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
                                                 class="profile-pic">
-                                          <span>Guest</span>
+                                                <span>  <?= htmlspecialchars($role) ?> </span>
                                     </div>
-                                    <a href="/Front-End/Lost/report-page.html" class="dropdown-item">Report</a>
-                                    <a href="/Front-End/Registration/html/login.html" class="dropdown-item">Log Out</a>
+                                    <a href="../Report-page/report-page.html" class="dropdown-item">Report</a>
+                                    <?php if ($role ==='user'): ?>
+                                          <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+                                    <?php elseif ($role === 'guest' || ''): ?>
+                                          <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                                    <?php endif; ?>
                               </div>
                         </div>
                   </div>

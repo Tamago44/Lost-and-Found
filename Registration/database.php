@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "lostandfounddb";
+$dbname = "chat_system";
 
 // Database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
