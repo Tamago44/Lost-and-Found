@@ -50,7 +50,7 @@ function displayAndHandleReportedItems() {
             if (overlay) {
                 // Clear previous content
                 fullDetails.innerHTML = `
-                    <div class="item-lost-name text-center my-1 mb-4">
+                    <div class="item-lost-name text-center my-1">
                         <h3 class="fw-bold">${report.itemName.charAt(0).toUpperCase() + report.itemName.slice(1)}</h3>
                     </div>
                     <div class="description-container">

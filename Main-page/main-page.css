@@ -29,7 +29,6 @@ body {
 header {
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 100;
 }
 
@@ -43,7 +42,7 @@ header {
     background-position: center;
     width: 100%;
     height: 100vh;
-    position: relative; /* For overlay and absolute positioning */
+    position: relative;
     overflow: hidden; /* Ensures no overflow from child elements */
     margin-bottom: 5vh;
 }
@@ -64,7 +63,7 @@ header {
 .background-ctu h1 {
     position: relative;
     z-index: 2;
-    font-size: 5rem; /* Larger font size */
+    font-size: 4.5rem; /* Larger font size */
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
@@ -116,14 +115,16 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #f9a602;
-    padding: 10px 50px;  
+    padding: 1em 2em;  
     font-weight: 600;
     color: rgb(255, 255, 255);
+    width: 100%;
 }
 .right-side-nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 50%;
 }
 .logo {
     display: flex;
@@ -136,10 +137,10 @@ header {
 }
 
 .logo img {
-    height: 50px;
+    height: 3.5rem;
     width: auto;
     cursor: pointer;
-    margin-right: 18px;
+    margin-right: 1.5em;
 }
 .items {
     position: relative; 
@@ -160,12 +161,12 @@ header {
 .items-lost-button, .items-found-button{
     height: 100%;
     width: 100%;
-    padding: 15px;
+    padding: 1em;
     border: none;
     background: none;
     cursor: pointer;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
 }
 .items-lost-button:hover,.items-found-button:hover{
@@ -176,7 +177,7 @@ header {
 }
 .notification{
     position: relative;
-    margin-right:60px;
+    margin-right:3.75rem;
 }
 .notification-bell-btn {
     position: relative;
@@ -189,8 +190,8 @@ header {
     font-weight: bold;
     background-color: red;
     border-radius: 50%;
-    height: 15px;
-    width: 15px;
+    height: 1rem;
+    width: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,8 +208,8 @@ header {
     background-color: #fff;
     border: 1px solid #e0e0e0;
     color: #282828;
-    border-radius: 8px;
-    width: 400px;
+    border-radius: 0.5rem;
+    width: 25em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 0;
@@ -218,13 +219,13 @@ header {
 
 .notification-label {
     font-weight: bold;
-    margin: 10px;
+    margin: 0.8em;
 }
 
 .notification-content-container {
     display: flex;
     align-items: center;
-    padding: 10px ;
+    padding: 0.8em ;
     cursor: pointer;
     align-items: center;
     transition: background-color 0.3s ease;
@@ -239,8 +240,8 @@ header {
     border-radius: 8px;
 }
 .notification-profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 15%;
+    height: 2.7rem;
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -254,11 +255,11 @@ header {
 }
 
 .notification-action {
-    margin: 0 5px;
+    margin: 0 0.5em;
 }
 
 .notification-content-daysPass {
-    font-size: 12px;
+    font-size: 0.8rem;
 }
 .notification-bell-btn i.active {
     color: #282828; /* Change to your desired color */
@@ -277,19 +278,18 @@ header {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
+    width: 10em;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     right: 0;
     color: black;
     border-radius: 8px;   
     transition: background-color 0.3s ease;
-
 }
 
 .dropdown-item {
     cursor: pointer;
-    padding: 12px 16px;
+    padding: 0.8em 1em;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -313,7 +313,11 @@ header {
     margin-right: 10px;
 }
 /*End of Header*/
+/* Navigation bottom */
 
+.nav-bottom{
+    display: none;
+}
 
 /* Responsive Design */
 /* @media screen and (max-width:768px) {
@@ -324,24 +328,32 @@ header {
         display: none;
     }
 } */
-/* 
 .container {
     max-width: 1536px;
     margin-left: auto;
     margin-right: auto;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-  } */
+  } 
   
-  /* 2xl */
+   /* 2xl  */
  @media (max-width: 1536px){
-
- }
+    .container {
+        max-width: 1280px;
+      }
+    header{
+        width: 100%;
+    }
+    .navbar{
+        width: 100%;
+    }
+ } 
   /* xl */
   @media (max-width: 1280px) {
     .container {
       max-width: 1024px;
     }
+   
   }
   
   /* lg */
@@ -366,10 +378,186 @@ header {
   }
   
   /* xs */
-  @media (max-width: 475px) {
+    @media (max-width: 475px) {
     .container {
       width: 100%;
+    }
+    .nav-bottom{
+        display:flex;
+        position: fixed;
+        background-color: #f9a602;
+        bottom: 0;
+        z-index:1001;
+        width: 100%;
+        height: 2.5rem;
+    }
+    .nav-bottom nav{
+     
+    }
+    .nav-bottom nav ul {
+        list-style-type: none;
+    }
+    .nav-bottom nav ul li{
+        display: inline-block;
+        line-height: 2.5rem;
+    }
+    .navbar{
+        
+    }
+    .background-ctu {
+        margin-bottom: 1vh;
+        flex-direction: column;
+    }
+
+    /* Centered Title Design */
+    .background-ctu h1 {
+        font-size: 2.3rem; /* Larger font size */
+        font-weight: bold;
+        margin:0 auto; /* Remove margin to keep it in one line */
+        white-space: nowrap; /* Prevent line break */
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 1rem; /* Slightly larger font size */
+        margin-top: 1rem; /* Space between title and tagline */
+        text-align: center;
+        
+    }
+    .navbar {
+        padding: 1em 1.5em;  
+    }
+    .logo img {
+        height: 2.8rem;
+        margin-right: 0.5em;
+    }
+    .school-ctu{
+        font-size: 0.8rem;
+    }
+    .right-side-nav{ 
+        display: none;
+    }
+    .bottom-lost{
+        margin-left: 3rem;
+    }
+    .bottom-home{
+        margin-left: 5rem;
+        margin-right:3rem ;
+    }
+    .bottom-found{
+        margin-right: 3rem;
+    }
+    .bottom-notif{
+    }
+    .notification{
+        margin-right:0;
+    }
+    .notification-label{
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+    .notification-bell-btn .bell-badge{
+        font-size:0.7rem ;
+        height: 0.9rem;
+        width: 0.9rem;
+    }
+   
+    .notification-container {
+        display: none;
+        width: 20em;
+        top: -21rem;
+        left: -20.2rem;
+    }
+    .notification-content-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        align-items: center;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        box-sizing: border-box; 
+        border-radius: 8px;
+        padding: 0.5em;
+    
+    }
+    .notification-content-container:hover {
+        background-color: #f0f0f0; 
+        width: 100%;
+        border-radius: 8px;
+    }
+    .notification-profile-pic {
+        width: 15%;
+        height: 2.7rem;
+        border-radius: 50%;
+        margin-right: 1rem;
+
+    }
+    .notification-username {
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-bottom: 0;       
+    }
+    
+    .notification-action {
+        margin: 0;
+        font-size: 0.6em;
+    }
+    
+    .notification-content-daysPass {
+        font-size: 0.6rem;
+    }
+   
+    
+    /* FOR SETTINGS & DROPDOWN */
+    .settings {
+        position: relative;
+    }
+    .settings .settings-btn{
+        border: none;
+        background: none;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        width: 10em;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        right: 0;
+        color: black;
+        border-radius: 8px;   
+        transition: background-color 0.3s ease;
+    }
+    
+    .dropdown-item {
+        cursor: pointer;
+        padding: 0.8em 1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease;
+        border-radius: 8px;   
+    
+    }
+    
+    .dropdown-item:hover {
+        background-color: #f0f0f0; 
+        transition: background-color 0.3s ease;
+        border-radius: 8px;   
+    
+    
+    }
+    
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
     }
 
 
   }
+   /* Fontsize= rem
+    Padding and margin = em
+    widths=percentage or em */  

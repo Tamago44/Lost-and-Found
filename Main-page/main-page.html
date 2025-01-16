@@ -11,7 +11,6 @@
       <title>Lost & Found System</title>
       <!-- Main-page Css -->
       <link rel="stylesheet" href="/Main-page/main-page.css">
-      <link rel="stylesheet" href="/Main-page/main-date.css">
       <link rel="stylesheet" href="/Main-page/main-sections.css">
       <!-- FONT AWESOME ICON -->
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
@@ -97,34 +96,35 @@
 
                         </div>
 
-                        <div class="settings">
-                              <button class="settings-btn" id="settings-btn">
-                                    <i class="fa-regular fa-bars"
-                                          style="color:#2c3b80;font-size:30px;cursor: pointer;"></i>
-                              </button>
+                        
+                  </div>
+                  <div class="settings">
+                        <button class="settings-btn" id="settings-btn">
+                              <i class="fa-regular fa-bars"
+                                    style="color:#2c3b80;font-size:30px;cursor: pointer;"></i>
+                        </button>
 
-                              <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                          <img src="/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
-                                                class="profile-pic">
-                                          <span>Guest</span>
-                                    </div>
-                                    <a href="/Report-page/report-page.html" class="dropdown-item">Report</a>
-                                    <a href="/Registration/login.html" class="dropdown-item">Log Out</a>
+                        <div class="dropdown-content">
+                              <div class="dropdown-item">
+                                    <img src="/Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          class="profile-pic">
+                                    <span>Guest</span>
                               </div>
+                              <a href="/Report-page/report-page.html" class="dropdown-item">Report</a>
+                              <a href="/Registration/login.html" class="dropdown-item">Log Out</a>
                         </div>
                   </div>
             </nav>
       </header>
-      <div class="background-ctu">
+      <div class="background-ctu ">
             <h1>Lost & Found</h1>
             <p>Your lost items, our mission to find them.</p>
       </div>
 
-      <div class="whole-section">
+      <div class="whole-section container">
             <div class="wrapper-sections">
 
-
+                  
                   <!-- LOST -->
                   <div class="wrapper">
                         <div class="txt-container">
@@ -153,7 +153,7 @@
                         </a>
                   </div>
                   <!-- FOUND -->
-                  <div class="wrapper">
+                  <div class="wrapper found-wrapper">
                         <div class="txt-container">
                               <div class="line"></div>
                               <div class="txt">FOUND </div>
@@ -183,10 +183,69 @@
                   </div>
                   <div class="clock" id="clock"></div>
                   <div class="date-container">
-                        <p class="mb-0" id="weekday"></p>
-                        <p id="date"></p>
+                        <p class="mb-0 weekday" id="weekday" ></p>
+                        <p id="date" class="date"></p>
                   </div>
             </div>
+      </div>
+      <div class="nav-bottom">
+            <nav>
+                  <ul>
+                        <li class="bottom-lost"><a href="/Lost-page/Lost-page.html" class="">Lost</a></li>
+                        <li class="bottom-home"> <div class="home"><a href="main-page.html" class="nav-link"><i
+                              class="fa-solid fa-house fs-5"></i></a>
+            </div></li>
+                        <li class="bottom-found"><a href="/Found-page/Found-page.html">Found</a></li>
+                        <li class="bottom-notif"> <div class="notification">
+                              <button class="notification-bell-btn" id="notification-bell-btn"><i
+                                          class="fa-solid fa-bell fs-5"></i>
+                                    <div class="bell-badge">3</div>
+                              </button>
+                              <div class="notification-container ">
+                                    <div class="notification-label">Notifications</div>
+                                  
+                                    <div class="notification-container-renderer">
+
+                                          <div class="notification-content-container">
+                                                <img src="/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                      class="notification-profile-pic">
+                                                <div class="notification-content-item">
+                                                      <span class="notification-username">User Name</span>
+                                                      <span class="notification-action">messages to the ITEM NAME</span>
+                                                      <div class="notification-content-daysPass">3 days ago</div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="notification-container-renderer">
+
+                                          <div class="notification-content-container">
+                                                <img src="/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                      class="notification-profile-pic">
+                                                <div class="notification-content-item">
+                                                      <span class="notification-username">User Name</span>
+                                                      <span class="notification-action">messages to the ITEM NAME</span>
+                                                      <div class="notification-content-daysPass">3 days ago</div>
+                                                </div>
+                                          </div>
+                                    </div>
+                                    <div class="notification-container-renderer">
+
+                                          <div class="notification-content-container">
+                                                <img src="/Reference/ctu-danao-logo.png" alt="Profile Picture"
+                                                      class="notification-profile-pic">
+                                                <div class="notification-content-item">
+                                                      <span class="notification-username">User Name</span>
+                                                      <span class="notification-action">messages to the ITEM NAME</span>
+                                                      <div class="notification-content-daysPass">3 days ago</div>
+                                                </div>
+                                          </div>
+                                    </div>
+
+                              </div>
+
+                        </div></li>
+                  </ul>
+            </nav>
       </div>
 
       <!-- Link for swiper JS -->

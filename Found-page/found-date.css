@@ -1,14 +1,14 @@
 #weekday{
   font-size: 30px;
-  color: #727272;
+  color:white;
 }
 #date{
   font-size: 20px;
-  color: #727272;
+  color: white;
 }
 #clock{
   font-size: 30px;
-  color: #727272;
+  color: white;
   margin-top:18px;
 }
 .date-container{

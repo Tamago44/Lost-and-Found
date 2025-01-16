@@ -17,13 +17,11 @@ a{
     transition: 0.3s;
 }
 body {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient();
-    padding-top: 100px;
+    height: 100vh;
 }
 
 /* Header*/
@@ -243,6 +241,7 @@ header {
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 22rem;
 }
 
 h1, h2 {

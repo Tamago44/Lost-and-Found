@@ -1,0 +1,18 @@
+body{
+  height: 100vh;
+  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  background-color: red;
+  width: 95%;
+  min-height: 30rem;
+  align-items: center;
+}
+@media screen and (max-width:1200px){
+  .container{
+    background-color: rgb(234, 250, 0);
+  }
+}
