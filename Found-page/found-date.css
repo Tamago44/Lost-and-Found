@@ -1,0 +1,17 @@
+#weekday{
+  font-size: 30px;
+  color:white;
+}
+#date{
+  font-size: 20px;
+  color: white;
+}
+#clock{
+  font-size: 30px;
+  color: white;
+  margin-top:18px;
+}
+.date-container{
+  margin-top: 20px;
+  text-align: center;
+}
