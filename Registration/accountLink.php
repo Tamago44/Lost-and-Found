@@ -17,6 +17,7 @@ if (isset($_POST['signUp'])) {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
+    $role = 'user';
 
     // Input validation
     if (empty($name) || empty($email) || empty($password)) {
@@ -48,12 +49,12 @@ if (isset($_POST['signUp'])) {
     $stmt_check->close();
 
     // Insert new user
-    $sql = "INSERT INTO userdetails (name, email, hashed_password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO userdetails (name, email, hashed_password, roles) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $name, $email, $hashed_password);
+    $stmt->bind_param("ssss", $name, $email, $hashed_password, $role);
 
     if ($stmt->execute()) {
-        echo "Sign-up successful! <a href='/Lost-and-Found/Main-page/main-page.html'>Click to continue...</a>";
+        echo "Sign-up successful! <a href='../Main/main-page.php'>Click to continue...</a>";
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -80,12 +81,15 @@ if (isset($_POST['signIn'])) {
         if (password_verify($password, $row['hashed_password'])) {
             session_start();
             $_SESSION['email'] = $row['email'];
-            echo "Login successful! <a href='/Lost-and-Found/Main-page/main-page.html'>Click here to continue...</a>";
+            $_SESSION['role'] = $row['roles']; // Pass user's role (e.g., 'user' or 'admin') from the database
+            $_SESSION['user_id'] = $id;
+            
+            echo "Login successful! <a href='../Main/main-page.php'>Click here to continue...</a>";
         } else {
             echo "Incorrect password. <a href='login.html'>Please try again!</a>";
         }
     } else {
-        echo "No account found with this email. <a href='login.php'>Please try again!</a>";
+        echo "No account found with this email. <a href='login.html'>Please try again!</a>";
     }
 
     $stmt->close();
@@ -116,7 +120,7 @@ if (isset($_POST["forgotPassword"])) {
 
     $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
     $host = $_SERVER['HTTP_HOST']; // This will return "localhost" or "127.0.0.1".
-    $basePath = "/Lost-and-Found/Registration"; // Replace with your project folder's relative path.
+    $basePath = "/Lost-and-Found-1/Registration"; // Replace with your project folder's relative path.
     $resetLink = "$protocol://$host$basePath/reset-password.php?token=$token";
 
     $mail->Body = <<<END
