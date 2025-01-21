@@ -1,0 +1,160 @@
+@media screen and (max-width: 768px) {
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        font-family: 'Lexend', sans-serif;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        height: 100%;
+        width: 100;
+        gap: 0;
+    }
+
+    .leftside {
+        grid-row: 1 / 5;
+        grid-column: 1 / 12;
+        background: linear-gradient(135deg, rgba(249, 166, 2, 1), rgba(255, 200, 0, 0.8));
+        z-index: 1;
+
+    }
+
+    .rightside {
+        display: none;
+    }
+
+    .logo {
+        z-index: 1;
+    }
+
+    .logo img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .landflogo {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        z-index: 1;
+    }
+
+    .landflogo img {
+        height: 130px;
+    }
+
+    .hello {
+        position: absolute;
+        color: white;
+        top: 47px;
+        right: 66%;
+        z-index: 1;
+    }
+
+    .welcome {
+        position: absolute;
+        font-size: 33px;
+        top: 65px;
+        right: 55%;
+        color: white;
+        z-index: 1;
+    }
+
+    #loginForm, #signupForm {
+        display: none;
+        background: white;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 0;
+        grid-row: 4 / 11;
+        grid-column: 1 / 12;
+        z-index: 1;
+    }
+
+    .loginacclabel p {
+        font-size: 40px;
+    }
+
+    .loginbuttonsubmit {
+        margin-bottom: 20px;
+        margin-top: 5px;
+    }
+
+    .signupbuttonsubmit{
+        margin-top: 5px;
+        text-align: center;
+    }
+
+    .donthaveacc, .alreadyhaveacc {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+
+    }
+
+    .signupMobile, .loginMobile {
+        border: none;
+        background-color: transparent;
+        text-decoration: underline;
+        color: rgba(249, 166, 2, 1);
+        font-size: 17px;
+    }
+
+    .email input,
+    .password input,
+    .name input,
+    .date input {
+        width: 100%;
+        height: 40px;
+        border: none;
+        background-color: rgba(249, 167, 2, 0.63);
+        border-radius: 5px;
+        padding-left: 15px;
+        color: #000;
+        margin-bottom: 20px;
+    }
+
+    #loginForm.active,
+    #signupForm.active {
+        display: block;
+    }
+    
+    #loginForm.active #loginbutton {
+        background-color: white;
+    }
+    
+    #signupForm.active #signupbutton {
+        background-color: white;
+    }
+    
+    #loginbutton, #signupbutton{
+        display: none;
+    }
+
+    dialog {
+        border: none;
+        border-radius: 20px;
+        height: 30%;
+        width: 80%;
+        background: white;
+        border: none;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    #newPassword {
+        height: 50%;
+        width: 80%;
+        overflow: hidden;
+        /*para di ni sya moscroll*/
+    }
+
+}
+

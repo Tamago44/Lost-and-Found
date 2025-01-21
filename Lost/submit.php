@@ -3,7 +3,7 @@
 
 // Database connection
 $host = 'localhost';
-$dbname = 'lostandfounddb';
+$dbname = 'chat_system';
 $username = 'root'; // Replace with your database username
 $password = ''; // Replace with your database password
 

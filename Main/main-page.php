@@ -6,11 +6,11 @@ $role = 'guest';
 
 // Check if logged in
 if (isset($_SESSION['role'])) {
-    $role = $_SESSION['role'];
-    $token = $_SESSION['token'] ?? null;
+      $role = $_SESSION['role'];
+      $token = $_SESSION['token'] ?? null;
 }
 
-if(isset($_SESSION['name'])) {
+if (isset($_SESSION['name'])) {
       $name = $_SESSION['name'] ?? null;
 }
 ?>
@@ -29,8 +29,7 @@ if(isset($_SESSION['name'])) {
       <title>Lost & Found System</title>
       <!-- Main-page Css -->
       <link rel="stylesheet" href="mainPage.css">
-      <link rel="stylesheet" href="main-date.css">
-      <link rel="stylesheet" href="mainsection.css">
+      <link rel="stylesheet" href="mainSection.css">
       <!-- FONT AWESOME ICON -->
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
 
@@ -38,9 +37,9 @@ if(isset($_SESSION['name'])) {
 
 <body>
       <header>
-            <nav class="navbar">
+            <nav class="navbar container">
                   <div class="logo">
-                        <a href="../Main/main-page.php"><img class="logo-image" src="../Reference/ctu-danao-logo.png"
+                        <a href="main-page.html"><img class="logo-image" src="../Reference/ctu-danao-logo.png"
                                     alt="CTU-Logo">
                         </a>
 
@@ -51,7 +50,7 @@ if(isset($_SESSION['name'])) {
 
                   </div>
                   <div class="right-side-nav">
-                        <div class="home me-5"><a href="../Main/main-page.php" class="nav-link"><i
+                        <div class="home me-5"><a href="main-page.html" class="nav-link"><i
                                           class="fa-solid fa-house fs-5"></i></a>
                         </div>
 
@@ -116,37 +115,37 @@ if(isset($_SESSION['name'])) {
 
                         </div>
 
-                        <div class="settings">
-                              <button class="settings-btn" id="settings-btn">
-                                    <i class="fa-regular fa-bars"
-                                          style="color:#2c3b80;font-size:30px;cursor: pointer;"></i>
-                              </button>
 
-                              <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                          <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
-                                                class="profile-pic">
-                                                <?php if ($role ==='user' || $role === 'admin'): ?>
-                                                <span>  <?= htmlspecialchars($name) ?> </span>                                    
-                                          <?php elseif ($role === 'guest' || ''): ?>
-                                          <span>  <?= htmlspecialchars($role) ?> </span>  
-                                          <?php endif; ?>                                        
-                                    </div>
-                                    <?php if ($role ==='user' || $role === 'admin'): ?>
-                                    <a href="../Report/report-page.php" class="dropdown-item">Report</a>
-                                    <?php elseif ($role === 'guest' || ''): ?>
-                                    <a href="../Login/login-page.html" class="dropdown-item" onclick="alert('Please login to create report.'); return false;">Report</a>
-                                    <?php endif; ?>
+                  </div>
+                  <div class="settings">
+                        <button class="settings-btn" id="settings-btn">
+                              <i class="fa-regular fa-bars"
+                                    ></i>
+                        </button>
 
-                                    <?php if ($role ==='user' || $role === 'admin'): ?>
-                                          <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+                        <div class="dropdown-content">
+                              <div class="dropdown-item">
+                                    <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          class="profile-pic">
+                                    <?php if ($role === 'user' || $role === 'admin'): ?>
+                                          <span> <?= htmlspecialchars($name) ?> </span>
                                     <?php elseif ($role === 'guest' || ''): ?>
-                                          <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                                          <span> <?= htmlspecialchars($role) ?> </span>
                                     <?php endif; ?>
-                                    </div>
-                                    
                               </div>
+                              <?php if ($role === 'user' || $role === 'admin'): ?>
+                                    <a href="../Report/report-page.php" class="dropdown-item">Report</a>
+                              <?php elseif ($role === 'guest' || ''): ?>
+                                    <a href="../Login/login-page.html" class="dropdown-item" onclick="alert('Please login to create report.'); return false;">Report</a>
+                              <?php endif; ?>
+
+                              <?php if ($role === 'user' || $role === 'admin'): ?>
+                                    <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+                              <?php elseif ($role === 'guest' || ''): ?>
+                                    <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                              <?php endif; ?>
                         </div>
+                  </div>
                   </div>
             </nav>
       </header>
@@ -155,7 +154,7 @@ if(isset($_SESSION['name'])) {
             <p>Your lost items, our mission to find them.</p>
       </div>
 
-      <div class="whole-section">
+      <div class="whole-section container">
             <div class="wrapper-sections">
 
                   <!-- LOST -->
@@ -165,15 +164,15 @@ if(isset($_SESSION['name'])) {
                               <div class="txt">LOST </div>
                         </div>
                         <div class="section-container">
-                              <div class="boxes-outer-container">
-                                    <!-- Include PHP File for Dynamic Content -->
-                                    <?php include "display_cards-lost.php"; ?>
-                              </div>
+
+                              <!-- Include PHP File for Dynamic Content -->
+                              <?php include "display_cards-lost.php"; ?>
+
                         </div>
                         <div class="overlay" id="overlay">
-                                    <div class="overlay-content">
-                                          <?php include "overlay.php"; ?>
-                                    </div>
+                              <div class="overlay-content">
+                                    <?php include "overlay.php"; ?>
+                              </div>
                         </div>
                         <div class="message-overlay" id="message-overlay">
                         </div>
@@ -189,10 +188,9 @@ if(isset($_SESSION['name'])) {
                               <div class="txt">FOUND </div>
                         </div>
                         <div class="section-container">
-                              <div class="boxes-outer-container">
-                                    <!-- Include PHP File for Dynamic Content -->
-                                    <?php include "display_cards-found.php"; ?>
-                              </div>
+
+                              <!-- Include PHP File for Dynamic Content -->
+                              <?php include "display_cards-found.php"; ?>
                               <div class="overlay" id="overlay">
                                     <div class="overlay-content">
                                           <?php include "overlay.php"; ?>
@@ -211,12 +209,49 @@ if(isset($_SESSION['name'])) {
                   </div>
                   <div class="clock" id="clock"></div>
                   <div class="date-container">
-                        <p class="mb-0" id="weekday"></p>
-                        <p id="date"></p>
+                        <p class="weekday" id="weekday"></p>
+                        <p class="date" id="date"></p>
+                  </div>
+            </div>
+
+
+
+      </div>
+      <!-- FOR MEDIA QUERIES -->
+      <div class="nav-bottom">
+            <div class="container">
+
+                  <div class="bottom-items">
+                        <div class="items me-5" style="cursor: default;">
+                              <div class="nav-link">ITEMS &#x25BC;</div>
+
+                              <ul class="dropdown">
+                                    <li><a href="/Lost-page/Lost-page.html" target="_blank"><button
+                                                      class="items-lost-button">Lost</button></a></li>
+                                    <li><a href="/Found-page/Found-page.html" target="_blank"><button
+                                                      class="items-found-button">Found</button></a>
+                                    </li>
+                              </ul>
+
+                        </div>
+                  </div>
+
+                  <div class="bottom-home">
+                        <div class="home"><a href="main-page.html" class="nav-link"><i
+                                          class="fa-solid fa-house fs-5"></i></a>
+                        </div>
+                  </div>
+
+                  <div class="bottom-notif" id="notification-bottom">
+                        <div class="notification">
+                              <button class="notification-bell-btn" id="notification-bell-btn-screen"><i
+                                          class="fa-solid fa-bell fs-5"></i>
+                                    <div class="bell-badge">3</div>
+                              </button>
+                        </div>
                   </div>
             </div>
       </div>
-
       <!-- Link for swiper JS -->
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -230,15 +265,13 @@ if(isset($_SESSION['name'])) {
             crossorigin="anonymous"></script>
 
       <!-- For main page js navigation -->
-      <script src="mainpage.js"></script>
+      <script src="mainPage.js"></script>
       <!-- CLOCK JS -->
       <script src="../Lost/clock.js"></script>
       <!-- DATE JS -->
       <script src="../Lost/date.js"></script>
-      <!-- GET REPORT -->
-      <script src="../Lost/get-report.js"></script>
       <!-- Full Details -->
-       <script src="displayFullDetails.js"></script>
+      <script src="displayFullDetails.js"></script>
 </body>
 
 </html>

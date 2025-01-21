@@ -1,0 +1,13 @@
+@media screen and (min-width: 769px) and (max-width: 1025px) {
+
+    #loginForm,
+    #signupForm {
+        grid-row: 3 / 10;
+        grid-column: 7 / 12;
+    }
+
+    dialog{
+        height: 30%;
+        width: 70%;
+    }
+}

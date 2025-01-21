@@ -3,6 +3,7 @@ body {
     padding: 0;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
     font-family: 'Lexend', sans-serif;
 }
 
@@ -113,7 +114,8 @@ body {
 
 /*LOGIN FORM AND SIGN UP FORM*/
 
-#loginForm, #signupForm {
+#loginForm,
+#signupForm {
     grid-row: 1 / 9;
     grid-column: 7 / 12;
     z-index: 1;
@@ -122,23 +124,37 @@ body {
     padding: 20px;
 }
 
-.loginacclabel, .createaccountlabel {
+.loginacclabel,
+.createaccountlabel,
+.newpasswordlabel {
     text-align: center;
 }
 
-.loginacclabel p, .createaccountlabel h1 {
+.loginacclabel p,
+.createaccountlabel p,
+.newpasswordlabel p {
     margin-top: 18%;
     font-weight: 700;
     font-size: 30px;
 }
 
-.email, .password, .name, .date {
+.email,
+.password,
+.name,
+.date,
+.newpass,
+.confirmPasscontain {
     margin-right: 20%;
     margin-left: 20%;
 }
 
 .email label,
-.password label, .name label, .email label, .date label {
+.password label,
+.name label,
+.email label,
+.date label,
+.newpass label,
+.confirmPasscontain label {
     font-size: 15px;
     text-align: left;
     display: inline-block;
@@ -147,7 +163,11 @@ body {
 }
 
 .email input,
-.password input, .name input, .date input {
+.password input,
+.name input,
+.date input,
+.newpass input,
+.confirmPasscontain input {
     width: 100%;
     height: 40px;
     border: none;
@@ -159,8 +179,7 @@ body {
 }
 
 .email input::placeholder,
-.password input::placeholder
- {
+.password input::placeholder {
     font-size: 16px;
     color: black;
     opacity: 0.5;
@@ -168,8 +187,7 @@ body {
 }
 
 .forgotpass {
-    text-align: right;
-    margin-right: 17%;
+   margin-left: 20%;
 }
 
 .forgotpass button {
@@ -181,19 +199,25 @@ body {
     color: rgb(249, 166, 2);
     transition: all 0.3s ease;
 }
+
 .forgotpass button:hover {
     color: rgb(255, 200, 0);
 }
-.loginbuttonsubmit, .buttonsignup {
+
+.loginbuttonsubmit,
+.signupbuttonsubmit,
+.newPassbutton {
     text-align: center;
     color: white;
     font-weight: bold;
     transition: all 0.3s ease;
     margin-top: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 50PX;
 }
 
-.loginbuttonsubmit button, .buttonsignup button {
+.loginbuttonsubmit button,
+.signupbuttonsubmit button,
+.newPassbutton button {
     border: none;
     background-color: rgb(249, 166, 2);
     background: rgb(255, 200, 0);
@@ -205,6 +229,27 @@ body {
     margin-top: 20px;
     cursor: pointer;
 
+}
+
+.sendEmailforForgotPass {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.sendEmailforForgotPass button {
+    border: none;
+    background-color: rgb(249, 166, 2);
+    background: rgb(255, 200, 0);
+    transform: scale(1.05);
+    width: 30%;
+    height: 27px;
+    border-radius: 5px;
+    font-family: 'Lexend';
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .line {
@@ -258,6 +303,14 @@ dialog {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+#newPassword {
+    height: 70%;
+    width: 30%;
+    overflow: hidden;
+    /*para di ni sya moscroll*/
+}
+
+
 dialog::backdrop {
     background-color: rgba(131, 130, 130);
     opacity: 60%;
@@ -265,7 +318,7 @@ dialog::backdrop {
 
 #forgotpassdialog h1 {
     text-align: center;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
 #forgotpassdialog input {
@@ -279,9 +332,10 @@ dialog::backdrop {
     padding-left: 15px;
     color: black;
     margin-top: 10px;
-    margin-bottom:px;
+    margin-bottom: px;
 
 }
+
 .closebutton {
     margin-top: 10px;
     display: flex;
@@ -292,39 +346,24 @@ dialog::backdrop {
     color: rgb(249, 166, 2);
     transition: all 0.3s ease;
 }
+
 .closebutton:hover {
     color: rgb(255, 200, 0);
     transform: scale(1.1);
 }
-#sendEmailforFogotPass {
-    margin: 10px auto 0;
-    display: block;
-    border: none;
-    height: 30px;
-    width: 20%;
-    background-color: rgb(249, 166, 2);
-    border-radius: 5px;
-    font-family: 'Lexend';
-    background: rgb(249, 166, 2);
-    color: white;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
 
-#sendEmailforFogotPass:hover {
-    background: rgb(255, 200, 0);
-    transform: scale(1.05);
-}
 /*FOR THE TABBED OPTION KATO LOG IN AND SIGN UP*/
 
-#loginForm, #signupForm {
+#loginForm,
+#signupForm {
     display: none;
     background: white;
     border-radius: 20px;
     padding: 20px;
 }
 
-#loginForm.active, #signupForm.active {
+#loginForm.active,
+#signupForm.active {
     display: block;
 }
 
@@ -335,12 +374,14 @@ dialog::backdrop {
 #signupForm.active #signupbutton {
     background-color: white;
 }
+
 /* Fade-in animation for forms */
 @keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -360,4 +401,9 @@ dialog::backdrop {
 .icons div:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.donthaveacc,
+.alreadyhaveacc {
+    display: none;
 }

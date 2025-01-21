@@ -1,45 +1,32 @@
 /* WHOLE SECTION */
 .whole-section {
-  display: flex; 
-  height: calc(100vh - 100px);
-  margin-left: 80px;
+  display: flex;
 }
 
 .wrapper-sections {
-  flex: 3; 
-  padding: 20px;
-  overflow-y: auto; /* Allow vertical scrolling */
-  height: 100%;
-}
-
-.wrapper-sections::-webkit-scrollbar {
-  width: 0; /* Hide scrollbar for WebKit browsers */
-}
-
-.wrapper-sections {
-  scrollbar-width: none; 
+  flex: 3;
+  padding: 3em;
+  overflow-y: auto;
 }
 
 .right-section {
-  margin-top: 30px;
+  margin-top: 3.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 250px;
-  position: relative;
-  right: 20px;
+  height: 15.625rem;
 }
 
 .right-section .searchbar {
-  flex: 2;
+  flex: 1;
   position: relative;
 }
 
 .right-section .searchbar .search-item {
   display: block;
   background-color: #F9A602;
-  padding: 3px 20px 3px 10px;
+  padding: 0.4em 1.3em 0.2em 0.7em;
   border-radius: 0;
 }
 
@@ -47,127 +34,168 @@
   position: absolute;
   top: 0;
   right: 0;
+  width: 3.125em;
   border: none;
-  width: 50px;
-  height: 50%;
+  margin: 0;
+  height: 2.5rem;
   background: none;
-  cursor: pointer; 
+  cursor: pointer;
+
 }
 
 .right-section .searchbar .search-button i {
-  color: #6a6d71;
+  color: #ffffff;
+}
+
+.searchbar input::placeholder {
+  color: white;
 }
 
 .right-section .searchbar .search-button i:hover {
   color: #3a53c3;
 }
-/* BOXES CONTAINER */
+
+/* WRAPPER */
 .wrapper {
-  height: auto;
+  margin-bottom: 5em;
 }
 
 .section-container {
-  display: flex; /* Change from grid to flex */
-  flex-wrap: wrap; /* Allow wrapping of items */
-  gap: 20px; /* Space between cards */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columns */
+  gap: 20px;
+  grid-template-rows: repeat(2, auto);
   position: relative;
+
 }
 
 .txt-container {
   display: flex;
-  margin-bottom: 50px;
+  align-items: center;
+  margin-bottom: 3.125em;
 }
 
 .txt {
   color: #2c3b80;
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 /* Container Styling */
-/* Container Styling */
 .boxes-container {
-  background-color: #282828; /* Dark background for contrast */
-  border-radius: 15px; /* Slightly more rounded corners */
+  background-color: #282828;
+  /* Dark background for contrast */
+  border-radius: 15px;
+  /* Slightly more rounded corners */
   margin-right: 10px;
-  height: 350px;
-  width: 300px;
-  color: white; /* White text */
-  padding: 20px; /* Increased padding for better spacing */
+  height: 21.875rem;
+  width: 18.75em;
+  color: white;
+  /* White text */
+  padding: 1.3em;
+  /* Increased padding for better spacing */
   cursor: pointer;
   transition: 0.3s;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: flex-start; /* Align items to the left */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  border: 2px solid transparent; /* Transparent border for hover effect */
+  justify-content: center;
+  /* Center content vertically */
+  align-items: flex-start;
+  /* Align items to the left */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  /* Subtle shadow for depth */
+  border: 2px solid transparent;
+  /* Transparent border for hover effect */
 }
 
 /* Hover Effect */
 .boxes-container:hover {
-  border: 2px solid #F9A602; /* Theme color border on hover */
-  background-color: #1E1E1E; /* Darker background for better text contrast */
-  transform: scale(1.02); /* Slight zoom effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
-}
-.boxes-outer-container{
-    display: flex; /* Change from grid to flex */
-    flex-wrap: wrap; /* Allow wrapping of items */
-    gap: 20px; /* Space between cards */
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-/* Item Lost Text Styling */
-.item-lost-txt {
-  font-size: 18px;
-  font-weight: 600;
-  color: #ffffff; /* Theme color */
-  text-transform: uppercase; /* Uppercase text */
-  letter-spacing: 1px; /* Spacing between letters */
-  margin-bottom: 10px; /* Space below the text */
-  align-self: flex-start; /* Move "Item Lost" to the right side */
-  margin-right: 10px; /* Add some spacing from the edge */
+  border: 2px solid #F9A602;
+  /* Theme color border on hover */
+  background-color: #1E1E1E;
+  /* Darker background for better text contrast */
+  transform: scale(1.02);
+  /* Slight zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  /* Enhanced shadow on hover */
 }
 
+/* Item Lost Text Styling */
+.item-lost-txt {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  /* Theme color */
+  text-transform: uppercase;
+  /* Uppercase text */
+  letter-spacing: 1px;
+  /* Spacing between letters */
+  margin-bottom: 0.7em;
+  /* Space below the text */
+  align-self: flex-start;
+  /* Move "Item Lost" to the right side */
+  margin-right: 0.7em;
+  /* Add some spacing from the edge */
+}
+
+/* Item Lost Name Styling */
 .boxes-container .item-lost-name {
-  font-size: 35px; /* Large font size */
-  font-weight: 500; /* Medium font weight */
-  color: #ffffff; /* Theme color */
+  font-size: 2.1875rem;
+  /* Large font size */
+  font-weight: 500;
+  /* Medium font weight */
+  color: #ffffff;
+  /* Theme color */
   text-align: center;
-  margin: 70px 0; /* Adjusted margins to prevent overlap */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Text shadow */
+  margin: 1.9em 0;
+  /* Adjusted margins to prevent overlap */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  /* Text shadow */
   width: 100%;
-   /* Ensure it spans the full width */
+  /* Ensure it spans the full width */
 }
 
 /* Item Status Styling */
 .item-status {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  color: #ffffff; /* Theme color */
-  margin-bottom: 10px; /* Space below the text */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-  padding: 5px 10px; /* Padding for background */
-  border-radius: 5px; /* Rounded corners */
-  width: 100%; /* Ensure it spans the full width */
+  color: #ffffff;
+  /* Theme color */
+  margin-bottom: 0.6em;
+  /* Space below the text */
+  background: rgba(255, 255, 255, 0.1);
+  /* Semi-transparent white background */
+  padding: 0.2em 0.5em;
+  /* Padding for background */
+  border-radius: 5px;
+  /* Rounded corners */
+  width: 100%;
+  /* Ensure it spans the full width */
 }
+
 /* Date Reported Text Styling */
 .date-reported-text {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
-  color: #ffffff; /* Theme color */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
-  padding: 5px 10px; /* Padding for background */
-  border-radius: 5px; /* Rounded corners */
-  width: 100%; /* Ensure it spans the full width */
+  color: #ffffff;
+  /* Theme color */
+  background: rgba(255, 255, 255, 0.1);
+  /* Semi-transparent white background */
+  padding: 0.2em 0.5em;
+  /* Padding for background */
+  border-radius: 5px;
+  /* Rounded corners */
+  width: 100%;
+  /* Ensure it spans the full width */
 }
+
 .boxes-container:hover .item-lost-txt,
 .boxes-container:hover .item-lost-name,
 .boxes-container:hover .item-status,
 .boxes-container:hover .date-reported-text {
-  color: #F9A602; /* Theme color */
+  color: #F9A602;
+  /* Theme color */
   /* White text on hover */
 }
 
@@ -177,148 +205,210 @@
   background-color: #F9A602;
   margin-right: 10px;
 }
+
 /* VIEW MORE BUTTON */
 .view-more-button {
   background-color: #F9A602;
-  height: 45px;
-  width: 150px;
-  padding: 9px 25px;
-  font-size: 15px;
+  height: 3rem;
+  width: 11em;
+  padding: 0.5625em 1.5625em;
+  font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
   border: none;
   transition: background-color 0.5s ease;
-  border: 2px solid #0b0a07;
+  border: 2px solid #F9A602;
   border-radius: 0;
   margin-top: 30px;
-  margin-bottom: 50px;
 }
 
 .view-more-button:hover {
   background-color: transparent;
-  color: #3a53c3;
+  color: #cbcac8;
   border: 2px solid #F9A602;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-/* FOR FULL DETAILS */
+
+/* Design of Full-details wil display */
 .overlay {
-  display: none; /* Initially hidden */
-  position: fixed; 
+  display: none;
+  /* Initially hidden */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height:100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Solid black background to cover everything */
-  justify-content: center; /* Center the content */
-  align-items: center; /* Center the content */
-  z-index: 1000; /* Ensure it appears above other elements */
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Darker overlay for better focus */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+  backdrop-filter: blur(5px);
+  /* Adds a subtle blur effect to the background */
 }
 
 .overlay-content {
-  background-color: rgba(255, 255, 255, 1); /* Slightly transparent white background for the overlay content */
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.875em;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+  /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay-content .item-lost-name h3 {
+  font-size: 1.5rem;
+  color: #2c3b80;
+  margin-bottom: 0;
+}
+
+.description-container {
+  height: 12.5rem;
+  overflow-y: auto;
+  padding: 0.6em;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  padding:25px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  height: 500px;
-  width: 430px;/* Subtle shadow for depth */
+  margin-bottom: 1em;
 }
-.overlay-content .etc-labels{
-  margin-top: 20px;
-  margin-bottom: 35px;
-}
-.description-container{
-  height: 200px;
-  overflow: hidden;
-}
-.description-container p{
+
+.description-container p {
   margin: 0;
-  flex-grow: 1;
-  overflow: auto;
+  color: #555;
+  line-height: 1.6;
 }
+
+.etc-labels {
+  margin-top: 1.25em;
+  margin-bottom: 1.875em;
+}
+
+.etc-labels p {
+  margin: 0.625em 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.etc-labels p strong {
+  color: #2c3b80;
+}
+
 .close-message-buttons {
   display: flex;
-  flex-wrap: wrap; /* Allow buttons to wrap if content is long */
-  align-items: center;
   justify-content: space-between;
-  gap: 10px; /* Adds spacing between buttons */
-  padding: 10px;
-  width: 100%; /* Ensures the container expands */
-  max-width: 100%; /* Prevents overflow */
-  box-sizing: border-box;
+  gap: 15px;
 }
 
 .close-message-buttons .close-button,
 .close-message-buttons .message-button {
-  display: flex;
-  justify-content: center; /* Center the button horizontally */
-  align-items: center; /* Center the button vertically */
-  background-color: #F9A602;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 16px;
+  flex: 1;
+  padding: 12px 0;
+  font-size: 1rem;
   font-weight: 600;
-  color: white;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  white-space: nowrap; /* Prevent button text wrapping */
-  max-width: 100%; /* Prevents button from overflowing */
+  transition: all 0.3s ease;
+}
+
+.close-message-buttons .close-button {
+  background-color: #f9a602;
+  color: #fff;
 }
 
 .close-message-buttons .close-button:hover {
-  background-color: transparent;
-  color: #3a53c3;
-  border: 2px solid #F9A602;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #e69500;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(249, 166, 2, 0.3);
 }
 
 .close-message-buttons .message-button {
   background-color: #496afb;
-  color: white;
-  transition: background-color 0.5s ease;
+  color: #fff;
 }
 
 .close-message-buttons .message-button:hover {
-  background-color: transparent;
-  color: #282828;
-  border: 2px solid #496afb;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-color: #3b5edc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(73, 106, 251, 0.3);
 }
 
 
+/* FOR MESSAGE CONTAINER */
 .message-overlay {
   display: none;
   align-items: center;
   flex-direction: column;
-  /* Initially hidden */
-  height: 550px;
-  width: 800px;
+  height: 34.375rem;
+  width: 50em;
   background-color: #ffffff;
   border-radius: 10px;
   position: fixed;
   top: 60px;
   left: 270px;
   z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .message-overlay .message-design-top {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 4.375rem;
   width: 100%;
   border-radius: 10px 10px 0 0;
   background-color: rgb(249, 166, 2);
   border-bottom: 1px solid #989595;
   box-shadow: 0px 4px 8px rgba(40, 40, 40, 0.2);
+  animation: slideDown 0.3s ease-in-out;
 }
-.close-btn-message-overlay-container{
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-btn-message-overlay-container {
   height: 100%;
-  width: 70px;
+  width: 4.375em;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right:10px ;
+  margin-right: 10px;
 }
 
 .close-btn-message-overlay {
@@ -326,145 +416,810 @@
   width: 100%;
   border: none;
   background: none;
-  transition: 0.5s;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 .close-btn-message-overlay:hover {
   background-color: rgba(40, 40, 40, 0.5);
-  transition: 0.5s;
-
+  transform: scale(1.1);
 }
+
 .message-user-profile {
   border-radius: 50%;
-  height: 55px;
-  width: 55px;
-  margin-right: 15px;
+  height: 3.4375rem;
+  width: 3.4375em;
+  margin-right: 0.9375em;
+  transition: transform 0.3s ease;
 }
+
+.message-user-profile:hover {
+  transform: scale(1.1);
+}
+
 /* CHATS CENTER */
 .message-chat-container {
-  height: 420px;
-  /* Fixed height */
+  height: 26.25rem;
   width: 100%;
-  padding: 0px 15px;
+  padding: 0px 0.9375em;
   overflow-y: auto;
-  /* Enable vertical scrolling */
   border: 1px solid #ccc;
-  /* Optional: Add a border for better visibility */
   border-radius: 10px;
-  /* Optional: Add rounded corners */
+  animation: fadeIn 0.5s ease-in-out;
 }
+
 .chat-container-inner {
   display: flex;
   align-items: center;
   height: fit-content;
-  margin-bottom: 20px;
-  /* Reduced margin for better spacing */
+  margin-bottom: 1.25em;
+  margin: 0.625em 0px 0.3125em 0.9375em;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .user-chat-container {
   display: flex;
   height: fit-content;
-  margin: 0 15px;
-  width: 735px;
+  align-items: center;
+  margin: 0 0.9375em;
+  width: 45.9375em;
+}
+
+.chat-container-inner-user2 {
+  padding-left: 6.25em;
 }
 
 .chats {
   margin: 0;
   overflow-wrap: break-word;
-  /* Allows long words to break and wrap */
   word-break: break-word;
-  /* Breaks words at arbitrary points */
   white-space: normal;
- 
-  /* Allows text to wrap normally */
+  transition: background-color 0.3s ease;
 }
 
-.user-chat-profile{
+.user-chat-profile {
   border-radius: 50%;
-  height: 55px;
-  width: 55px;
-  margin-right: 15px;
-  margin-top: 28px;
+  height: 3.4375rem;
+  width: 3.4375em;
+  margin-right: 0.9375em;
+  margin-top: 1.75em;
+  transition: transform 0.3s ease;
 }
-.user-chat-name{
-  margin: 0 0 5px 5px;
+
+.user-chat-profile:hover {
+  transform: scale(1.1);
+}
+
+.user-chat-name {
+  margin: 0 0 0.3125em 0.3125em;
   color: #0000008a;
 }
-.user-chat-container-content-outer{
+
+.user-chat-container-content-outer {
   display: flex;
   flex-direction: column;
 }
+
 .user-chat-container-content {
   background-color: #496afb;
   border-radius: 15px;
-  padding: 8px 10px;
+  padding: 0.5em 0.625em;
   color: white;
   width: fit-content;
-  /* Optional: Change text color for better contrast */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-chat-container-content:hover {
+  background-color: #3b5bdb;
+  transform: scale(1.02);
 }
 
 .message-design-bottom {
-  height: 70px;
+  height: 4.375rem;
   background-color: #F9A602;
   width: 100%;
   border-radius: 0 0 9px 9px;
   border-top: 1px solid #989595;
   box-shadow: 0 -4px 8px rgba(40, 40, 40, 0.2);
-  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.message-upload-pic-container {
+  height: 100%;
+  width: 4.375em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-upload-pic-btn {
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.message-upload-pic-btn:hover {
+  background-color: rgba(0, 0, 0, 0.288);
+  transform: scale(1.1);
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 45.625em;
+}
+
+.message-input {
+  height: 40px;
+  width: 37.5em;
+  border-radius: 20px;
+  padding-left: 1.25em;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.message-input:focus {
+  border-color: rgb(249, 166, 2);
+  outline: none;
+}
+
+.message-send-container {
+  height: 100%;
+  width: 4.375em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-send-btn {
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  width: 100%;
+  background: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.message-send-btn:hover {
+  background-color: rgba(0, 0, 0, 0.288);
+  transform: scale(1.1);
+}
+
+/* date */
+.weekday {
+  font-size: 1.875rem;
+  color: #ffffff;
+  width: auto;
+}
+
+.date {
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.clock {
+  font-size: 1.875rem;
+  color: #ffffff;
+  margin-top: 1.125em;
+}
+
+.date-container {
+  text-align: center;
+  margin-top: 1.25em;
+}
+
+/* 2xl */
+@media (max-width: 1536px) {}
+
+/* xl */
+@media (max-width: 1280px) {
+  .whole-section {
+    flex-direction: column;
+  }
+
+  .found-wrapper {
+    margin-bottom: 0px;
+  }
+
+
+
+  .searchbar {
+    width: 100%;
+
+  }
+
+  .right-section .searchbar .search-item {
+    width: 100%;
+  }
+  .wrapper-sections {
+    padding-top: 0;
+  }
+
+  .right-section {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .right-section .searchbar {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .right-section .searchbar input[type="text"] {
+    font-size: 1rem;
+  }
+  .right-section .searchbar .search-button {
+    height: 2.4rem;
+  }
+
+  .date-container {
+
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .weekday {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1.5rem;
+
+  }
+
+  .clock {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+
+  .section-container {
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 1%;
+    grid-template-rows: repeat(3, auto);
+
+  }
+
+  .txt-container {
+    position: relative;
+    left: -1.5rem;
+  }
+
+  .txt {
+    font-size: 1.2rem;
+  }
+
+  /* Container Styling */
+  .boxes-container {
+    border-radius: 9px;
+  
+    /* Slightly more rounded corners */
+    height: 18em;
+    padding: 0.8rem;
+    /* Increased padding for better spacing */
+  }
+
+  /* Item Lost Text Styling */
+  .item-lost-txt {
+    font-size: 0.9rem;
+  }
+
+  /* Item Lost Name Styling */
+  .boxes-container .item-lost-name {
+    font-size: 1.8rem;
+    /* Large font size */
+    margin: 1.9em 0;
+    /* Adjusted margins to prevent overlap */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Text shadow */
+    width: 100%;
+    /* Ensure it spans the full width */
+  }
+
+  /* Item Status Styling */
+  .item-status {
+    font-size: 0.9rem;
+  }
+
+  /* Date Reported Text Styling */
+  .date-reported-text {
+    font-size: 0.9rem;
+  }
+
+  .line {
+    height: 25px;
+    width: 5px;
+    margin-left: 0;
+  }
+
+  /* VIEW MORE BUTTON */
+  .view-more-button {
+    height: 2.5rem;
+    width: 10em;
+    font-size: 0.8rem;
+    margin-top: 8rem;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .wrapper-sections {
+    padding-top: 0;
+  }
+
+  .right-section {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .right-section .searchbar {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .right-section .searchbar input[type="text"] {
+    font-size: 1rem;
+  }
+  .right-section .searchbar .search-button {
+    height: 3rem;
+  }
+
+  .date-container {
+
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .weekday {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1.5rem;
+
+  }
+
+  .clock {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+
+  .section-container {
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 1%;
+    grid-template-rows: repeat(3, auto);
+
+  }
+
+  .txt-container {
+    position: relative;
+    left: -1.5rem;
+  }
+
+  .txt {
+    font-size: 1.2rem;
+  }
+
+  /* Container Styling */
+  .boxes-container {
+    border-radius: 9px;
+  
+    /* Slightly more rounded corners */
+    width: 14em;
+    height: 18em;
+    padding: 0.8rem;
+    /* Increased padding for better spacing */
+  }
+
+  /* Item Lost Text Styling */
+  .item-lost-txt {
+    font-size: 0.9rem;
+  }
+
+  /* Item Lost Name Styling */
+  .boxes-container .item-lost-name {
+    font-size: 1.8rem;
+    /* Large font size */
+    margin: 1.9em 0;
+    /* Adjusted margins to prevent overlap */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Text shadow */
+    width: 100%;
+    /* Ensure it spans the full width */
+  }
+
+  /* Item Status Styling */
+  .item-status {
+    font-size: 0.9rem;
+  }
+
+  /* Date Reported Text Styling */
+  .date-reported-text {
+    font-size: 0.9rem;
+  }
+
+  .line {
+    height: 25px;
+    width: 5px;
+    margin-left: 0;
+  }
+
+  /* VIEW MORE BUTTON */
+  .view-more-button {
+    height: 2.5rem;
+    width: 10em;
+    font-size: 0.8rem;
+    margin-top: 8rem;
+  }
   
 }
-.message-upload-pic-container{
-  height: 100%;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* md */
+@media (max-width: 768px) {
+  .wrapper-sections {
+    padding-top: 0;
+  }
+
+  .right-section {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .right-section .searchbar {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .right-section .searchbar input[type="text"] {
+    font-size: 0.8rem;
+
+  }
+
+  .right-section .searchbar .search-button {
+    height: 2rem;
+  }
+
+  .date-container {
+
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .weekday {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1.5rem;
+
+  }
+
+  .clock {
+    font-size: 2rem;
+    margin-top: 0;
+  }
+
+  .section-container {
+    grid-template-columns: repeat(2, 1fr);
+    /* 3 columns */
+    gap: 1%;
+    grid-template-rows: repeat(2, auto);
+
+  }
+
+  .txt-container {
+    position: relative;
+    left: -1.5rem;
+  }
+
+  .txt {
+    font-size: 1.2rem;
+  }
+
+  /* Container Styling */
+  .boxes-container {
+    border-radius: 9px;
+  
+    /* Slightly more rounded corners */
+    width: 17em;
+    height: 18em;
+    padding: 0.8rem;
+    /* Increased padding for better spacing */
+  }
+
+  /* Item Lost Text Styling */
+  .item-lost-txt {
+    font-size: 0.9rem;
+  }
+
+  /* Item Lost Name Styling */
+  .boxes-container .item-lost-name {
+    font-size: 1.8rem;
+    /* Large font size */
+    margin: 1.9em 0;
+    /* Adjusted margins to prevent overlap */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Text shadow */
+    width: 100%;
+    /* Ensure it spans the full width */
+  }
+
+  /* Item Status Styling */
+  .item-status {
+    font-size: 0.9rem;
+  }
+
+  /* Date Reported Text Styling */
+  .date-reported-text {
+    font-size: 0.9rem;
+  }
+
+  .line {
+    height: 25px;
+    width: 5px;
+    margin-left: 0;
+  }
+
+  /* VIEW MORE BUTTON */
+  .view-more-button {
+    height: 2.5rem;
+    width: 10em;
+    font-size: 0.8rem;
+    margin-top: 8rem;
+  }
 }
-.message-upload-pic-btn{
-  border: none;
-  height: 100%;
-  cursor: pointer;
-  width: 100%;
-  background: none;
-  transition: 0.5s;
+
+/* sm */
+@media (max-width: 640px) {
+  .wrapper-sections {
+    padding-top: 0;
+  }
+
+  .right-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .right-section .searchbar {
+    flex: 0;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .right-section .searchbar input[type="text"] {
+    font-size: 0.8rem;
+
+  }
+
+  .right-section .searchbar .search-button {
+    height: 2rem;
+  }
+
+  .date-container {
+
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .weekday {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1rem;
+
+  }
+
+  .clock {
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+
+  .section-container {
+    grid-template-columns: repeat(1, 1fr);
+    /* 3 columns */
+    gap: 1%;
+    grid-template-rows: repeat(2, auto);
+
+  }
+
+  .txt-container {
+    position: relative;
+    left: -1.5rem;
+  }
+
+  .txt {
+    font-size: 1.2rem;
+  }
+
+  /* Container Styling */
+  .boxes-container {
+    border-radius: 9px;
+    /* Slightly more rounded corners */
+    height: 18em;
+    padding: 0.8rem;
+    /* Increased padding for better spacing */
+  }
+
+  /* Item Lost Text Styling */
+  .item-lost-txt {
+    font-size: 0.9rem;
+  }
+
+  /* Item Lost Name Styling */
+  .boxes-container .item-lost-name {
+    font-size: 1.8rem;
+    /* Large font size */
+    margin: 1.9em 0;
+    /* Adjusted margins to prevent overlap */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Text shadow */
+    width: 100%;
+    /* Ensure it spans the full width */
+  }
+
+  /* Item Status Styling */
+  .item-status {
+    font-size: 0.9rem;
+  }
+
+  /* Date Reported Text Styling */
+  .date-reported-text {
+    font-size: 0.9rem;
+  }
+
+  .line {
+    height: 25px;
+    width: 5px;
+    margin-left: 0;
+  }
+
+  /* VIEW MORE BUTTON */
+  .view-more-button {
+    height: 2.5rem;
+    width: 10em;
+    font-size: 0.8rem;
+    margin-top: 8rem;
+  }
 }
-.message-upload-pic-btn:hover{
-  transition: 0.5s;
-  background-color: rgba(0, 0, 0, 0.288);
-}
-.message-input-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-   height: 100%;
-  width: 730px;
-}
-.message-input{
-  height: 40px;
-  width: 600px;
-  border-radius: 20px;
-  padding-left: 20px;
-}
-.message-send-container{
-  height: 100%;
-  width: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.message-send-btn{
-  border: none;
-  height: 100%;
-  cursor: pointer;
-  width: 100%;
-  background: none;
-  transition: 0.5s;
-}
-.message-send-btn:hover{
-  transition: 0.5s;
-  background-color: rgba(0, 0, 0, 0.288);
+
+/* xs */
+@media (max-width: 475px) {
+  .wrapper-sections {
+    padding-top: 0;
+  }
+
+  .right-section {
+    margin-top: 0;
+    margin-bottom: 0;
+    order: -1;
+  }
+
+  .right-section .searchbar {
+    flex: 0;
+    margin-bottom: 3rem;
+  }
+
+  .right-section .searchbar input[type="text"] {
+    font-size: 0.8rem;
+
+  }
+
+  .right-section .searchbar .search-button {
+    height: 2rem;
+  }
+
+  .date-container {
+
+    margin-top: 0.5em;
+    margin-bottom: 0;
+  }
+
+  .weekday {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1rem;
+
+  }
+
+  .clock {
+    font-size: 1.6rem;
+    margin-top: 0;
+  }
+
+  .section-container {
+    grid-template-columns: repeat(1, 1fr);
+    /* 3 columns */
+    gap: 1%;
+    grid-template-rows: repeat(2, auto);
+
+  }
+
+  .txt-container {
+    position: relative;
+    left: -1.5rem;
+  }
+
+  .txt {
+    font-size: 1.2rem;
+  }
+
+  /* Container Styling */
+  .boxes-container {
+    border-radius: 9px;
+    /* Slightly more rounded corners */
+    height: 18em;
+    padding: 0.8rem;
+    /* Increased padding for better spacing */
+  }
+
+  /* Item Lost Text Styling */
+  .item-lost-txt {
+    font-size: 0.9rem;
+  }
+
+  /* Item Lost Name Styling */
+  .boxes-container .item-lost-name {
+    font-size: 1.8rem;
+    /* Large font size */
+    margin: 1.9em 0;
+    /* Adjusted margins to prevent overlap */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    /* Text shadow */
+    width: 100%;
+    /* Ensure it spans the full width */
+  }
+
+  /* Item Status Styling */
+  .item-status {
+    font-size: 0.9rem;
+  }
+
+  /* Date Reported Text Styling */
+  .date-reported-text {
+    font-size: 0.9rem;
+  }
+
+  .line {
+    height: 25px;
+    width: 5px;
+    margin-left: 0;
+  }
+
+  /* VIEW MORE BUTTON */
+  .view-more-button {
+    height: 2.5rem;
+    width: 10em;
+    font-size: 0.8rem;
+    margin-top: 8rem;
+  }
+
 }

@@ -1,12 +1,23 @@
-const dialog = document.getElementById("forgotpassdialog");
 
-function showDialog() {
-    dialog.showModal()
+const forgotPassDialog = document.getElementById("forgotpassdialog");
+const newPasswordDialog = document.getElementById("newPassword");
+
+function showForgotPassDialog() {
+    forgotPassDialog.showModal();
 }
 
-function hide() {
-    dialog.close()
+function showNewPasswordDialog() {
+    newPasswordDialog.showModal();
 }
+
+function hideForgotPassDialog() {
+    forgotPassDialog.close();
+}
+
+function hideNewPasswordDialog() {
+    newPasswordDialog.close();
+}
+
 
 window.onload = function () {
     showLogin();
@@ -17,6 +28,7 @@ function showLogin() {
     document.getElementById("signupForm").classList.remove("active");
     document.getElementById("loginbutton").style.backgroundColor = 'white';
     document.getElementById("signupbutton").style.backgroundColor = '';
+    document.querySelector(".welcome p").textContent = "Welcome back!"; // Reset to "Welcome back!" when login is clicked
 }
 
 function showSignUp() {
@@ -24,4 +36,5 @@ function showSignUp() {
     document.getElementById("loginForm").classList.remove("active");
     document.getElementById("signupbutton").style.backgroundColor = 'white';
     document.getElementById("loginbutton").style.backgroundColor = '';
+    document.querySelector(".welcome p").textContent = "Welcome and join us!";
 }

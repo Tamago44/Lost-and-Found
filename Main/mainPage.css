@@ -3,34 +3,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
 
 * {
-    font-family: 'Montserrat', sans-serif;  
-    padding: 0px;   
+    font-family: 'Montserrat', sans-serif;
+    padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #282828;
     transition: 0.3s;
 }
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+    background: linear-gradient(135deg, #ebe8e8, #de0204, #940000);
 }
 
 /* Header*/
 header {
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 100;
+    width: 100%;
+    background-color: #f9a602;
 }
 
 /* Background */
@@ -38,13 +42,15 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url(/Front-End/Reference/ctu-danao-campus.jpg) no-repeat;
+    background: url(../Reference/ctu-danao-campus.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100vh;
-    position: relative; /* For overlay and absolute positioning */
-    overflow: hidden; /* Ensures no overflow from child elements */
+    position: relative;
+    overflow: hidden;
+    /* Ensures no overflow from child elements */
     margin-bottom: 5vh;
 }
 
@@ -55,8 +61,9 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height:100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Dark overlay */
     z-index: 1;
 }
 
@@ -64,67 +71,80 @@ header {
 .background-ctu h1 {
     position: relative;
     z-index: 2;
-    font-size: 5rem; /* Larger font size */
+    font-size: 4.5rem;
+    /* Larger font size */
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.3rem; /* Adds spacing between letters */
-    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
-  }
+    letter-spacing: 0.3rem;
+    /* Adds spacing between letters */
+    animation: fadeIn 2s ease-in-out;
+    /* Fade-in animation */
+}
+
 /* Subtitle or Tagline */
 .background-ctu p {
     position: relative;
     z-index: 2;
-    font-size: 1.8rem; /* Slightly larger font size */
-    color: #fff; /* White text color */
+    font-size: 1.8rem;
+    /* Slightly larger font size */
+    color: #fff;
+    /* White text color */
     margin-top: 1.5rem;
     text-align: center;
-    background: linear-gradient(45deg, #ffc400, #fad0c4); /* Gradient text color */
+    background: linear-gradient(45deg, #ffc400, #fad0c4);
+    /* Gradient text color */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: slideIn 2s ease-in-out; /* Slide-in animation */
-  }
-  
+    animation: slideIn 2s ease-in-out;
+    /* Slide-in animation */
+}
+
 
 /* Fade-in Animation */
 @keyframes fadeIn {
     from {
-      opacity: 0;
-      transform: translateY(-20px);
+        opacity: 0;
+        transform: translateY(-20px);
     }
+
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
-  /* Slide-in Animation */
-  @keyframes slideIn {
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
     from {
-      transform: translateY(50px);
-      opacity: 0;
+        transform: translateY(50px);
+        opacity: 0;
     }
+
     to {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
+        opacity: 1;
     }
-  }
+}
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f9a602;
-    padding: 10px 50px;  
+    width: 100%;
+    padding: 1em 2em;
     font-weight: 600;
     color: rgb(255, 255, 255);
 }
-.right-side-nav{
+
+.right-side-nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 30rem;
 }
+
 .logo {
     display: flex;
     vertical-align: center;
@@ -132,65 +152,81 @@ header {
 }
 
 .school-ctu {
-    margin: 0;  
+    margin: 0;
 }
 
 .logo img {
-    height: 50px;
+    height: 3.5rem;
     width: auto;
     cursor: pointer;
-    margin-right: 18px;
-}
-.items {
-    position: relative; 
-}
-.dropdown {
-    display: none; /* Hide dropdown by default */
-    position: absolute; /* Position it absolutely */
-    background-color: #f9a602; /* Background color of dropdown */
-    border: 1px solid #ccc;
-/* Border for dropdown */
-    list-style: none; /* Remove bullet points */
-    padding: 0;  /* Remove padding */
-    margin: 0; /* Remove margin */
-    z-index: 1000;
-    right:-5px; /* Ensure it appears above other elements */
+    margin-right: 1.5em;
 }
 
-.items-lost-button, .items-found-button{
+.items {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    /* Hide dropdown by default */
+    position: absolute;
+    /* Position it absolutely */
+    background-color: #f9a602;
+    /* Background color of dropdown */
+    border: 1px solid #ccc;
+    /* Border for dropdown */
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+    /* Remove padding */
+    margin: 0;
+    /* Remove margin */
+    z-index: 1000;
+    right: -5px;
+    /* Ensure it appears above other elements */
+}
+
+.items-lost-button,
+.items-found-button {
     height: 100%;
     width: 100%;
-    padding: 15px;
+    padding: 1em;
     border: none;
     background: none;
     cursor: pointer;
     color: white;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
 }
-.items-lost-button:hover,.items-found-button:hover{
+
+.items-lost-button:hover,
+.items-found-button:hover {
     background-color: rgba(0, 0, 0, 0.247);
 }
+
 .items:hover .dropdown {
-    display: block; 
+    display: block;
 }
-.notification{
+
+.notification {
     position: relative;
-    margin-right:60px;
+    margin-right: 3.75rem;
 }
+
 .notification-bell-btn {
     position: relative;
-    background: transparent; 
+    background: transparent;
     border: none;
-    cursor: pointer; 
+    cursor: pointer;
 }
-.notification-bell-btn .bell-badge{
+
+.notification-bell-btn .bell-badge {
     color: white;
     font-weight: bold;
     background-color: red;
     border-radius: 50%;
-    height: 15px;
-    width: 15px;
+    height: 1rem;
+    width: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -198,17 +234,19 @@ header {
     top: -2px;
     right: -6px;
 }
+
 .notification-bell-btn i {
     color: white;
     transition: color 0.3s;
 }
+
 .notification-container {
     display: none;
     background-color: #fff;
     border: 1px solid #e0e0e0;
     color: #282828;
-    border-radius: 8px;
-    width: 400px;
+    border-radius: 0.5rem;
+    width: 25em;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: 0;
@@ -218,29 +256,31 @@ header {
 
 .notification-label {
     font-weight: bold;
-    margin: 10px;
+    margin: 0.8em;
 }
 
 .notification-content-container {
     display: flex;
     align-items: center;
-    padding: 10px ;
+    padding: 0.8em;
     cursor: pointer;
     align-items: center;
     transition: background-color 0.3s ease;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     border-radius: 8px;
 
 }
+
 .notification-content-container:hover {
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     width: 100%;
     border-radius: 8px;
 }
+
 .notification-profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 15%;
+    height: 2.7rem;
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -254,54 +294,62 @@ header {
 }
 
 .notification-action {
-    margin: 0 5px;
+    margin: 0 0.5em;
 }
 
 .notification-content-daysPass {
-    font-size: 12px;
+    font-size: 0.8rem;
 }
+
 .notification-bell-btn i.active {
-    color: #282828; /* Change to your desired color */
+    color: #282828;
+    /* Change to your desired color */
 }
 
 /* FOR SETTINGS & DROPDOWN */
 .settings {
     position: relative;
 }
-.settings .settings-btn{
+
+.settings .settings-btn {
     border: none;
     background: none;
+}
+
+.settings-btn i {
+    color: #2c3b80;
+    font-size: 30px;
+    cursor: pointer;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    width: 10em;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     right: 0;
     color: black;
-    border-radius: 8px;   
+    border-radius: 8px;
     transition: background-color 0.3s ease;
-
 }
 
 .dropdown-item {
     cursor: pointer;
-    padding: 12px 16px;
+    padding: 0.8em 1em;
     text-decoration: none;
     display: flex;
     align-items: center;
     transition: background-color 0.3s ease;
-    border-radius: 8px;   
+    border-radius: 8px;
 
 }
 
 .dropdown-item:hover {
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     transition: background-color 0.3s ease;
-    border-radius: 8px;   
+    border-radius: 8px;
 
 
 }
@@ -312,4 +360,592 @@ header {
     border-radius: 50%;
     margin-right: 10px;
 }
+
 /*End of Header*/
+/* Navigation bottom */
+
+.nav-bottom {
+    display: none;
+    position: fixed;
+    background-color: #f9a602;
+    bottom: 0;
+    z-index: 50;
+    height: 2.5rem;
+}
+
+.container {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+/* 2xl  */
+@media (max-width: 1536px) {
+    .container {
+        max-width: 1280px;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .navbar {
+        width: 100%;
+    }
+
+    .right-side-nav {
+        margin-left: 37rem;
+    }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+    .container {
+        max-width: 1024px;
+    }
+
+    .right-side-nav {
+        margin-left: 23rem;
+    }
+
+    .background-ctu {
+        margin-bottom: 1vh;
+        flex-direction: column;
+    }
+
+    .background-ctu h1 {
+        font-size: 5.6rem;
+        font-weight: bold;
+        margin: 0 auto;
+        /* Remove margin to keep it in one line */
+        white-space: nowrap;
+        /* Prevent line break */
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 1.7rem;
+        /* Slightly larger font size */
+        margin-top: 1rem;
+        /* Space between title and tagline */
+        text-align: center;
+
+    }
+
+    /* FOR SETTINGS & DROPDOWN */
+    .settings {
+        position: relative;
+
+    }
+
+    .dropdown-content {
+        display: none;
+        width: 10em;
+        z-index: 1;
+        right: 0;
+        color: black;
+    }
+
+    .dropdown-item {
+        padding: 0.8em 1em;
+    }
+
+}
+
+/* lg */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .right-side-nav {
+        margin-left: 7rem;
+    }
+
+    .background-ctu {
+        margin-bottom: 1vh;
+        flex-direction: column;
+    }
+
+    .background-ctu h1 {
+        font-size: 5.6rem;
+        font-weight: bold;
+        margin: 0 auto;
+        /* Remove margin to keep it in one line */
+        white-space: nowrap;
+        /* Prevent line break */
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 1.7rem;
+        /* Slightly larger font size */
+        margin-top: 1rem;
+        /* Space between title and tagline */
+        text-align: center;
+
+    }
+
+    /* FOR SETTINGS & DROPDOWN */
+    .settings {
+        position: relative;
+    }
+
+    .dropdown-content {
+        display: none;
+        width: 10em;
+        z-index: 1;
+        right: 0;
+        color: black;
+    }
+
+    .dropdown-item {
+        padding: 0.8em 1em;
+    }
+
+
+}
+
+/* md */
+@media (max-width: 768px) {
+    .container {
+        max-width: 640px;
+    }
+
+    .nav-bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-bottom .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15em;
+    }
+
+
+    .background-ctu {
+        margin-bottom: 1vh;
+        flex-direction: column;
+    }
+
+    .background-ctu h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 0 auto;
+        /* Remove margin to keep it in one line */
+        white-space: nowrap;
+        /* Prevent line break */
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 1.3rem;
+        /* Slightly larger font size */
+        margin-top: 1rem;
+        /* Space between title and tagline */
+        text-align: center;
+
+    }
+
+    .navbar {
+        padding: 1em 1.5em;
+    }
+
+    .logo img {
+        height: 2.8rem;
+        margin-right: 0.5em;
+    }
+
+    .school-ctu {
+        font-size: 0.8rem;
+    }
+
+    .right-side-nav {
+        display: none;
+    }
+
+
+    .items {
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    .dropdown {
+        /* Border for dropdown */
+        right: inherit;
+        top: -4.7rem;
+        /* Ensure it appears above other elements */
+    }
+
+    .items-lost-button,
+    .items-found-button {
+        padding: 0.5em;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .notification-label {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .notification-bell-btn .bell-badge {
+        font-size: 0.7rem;
+        height: 0.9rem;
+        width: 0.9rem;
+    }
+
+    .notification-container {
+        width: 20em;
+        top: -21rem;
+        left: -20.2rem;
+    }
+
+    .notification-content-container {
+        padding: 0.5em;
+
+    }
+
+    .notification-profile-pic {
+        width: 13%;
+        height: 2.3rem;
+        margin-right: 1rem;
+    }
+
+    .notification-username {
+        font-size: 0.7em;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .notification-action {
+        margin: 0;
+        font-size: 0.5em;
+    }
+
+    .notification-content-daysPass {
+        font-size: 0.5rem;
+    }
+
+
+    /* FOR SETTINGS & DROPDOWN */
+    .settings {
+        position: relative;
+    }
+
+    .settings .settings-btn {
+        border: none;
+        background: none;
+    }
+
+    .dropdown-content {
+        display: none;
+        width: 10em;
+        z-index: 1;
+        right: 0;
+        color: black;
+    }
+
+    .dropdown-item {
+        padding: 0.8em 1em;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+
+
+    }
+
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+}
+
+/* sm */
+@media (max-width: 640px) {
+    .container {
+        max-width: 475px;
+
+    }
+
+    .nav-bottom .container {
+        gap: 9em;
+    }
+
+    .background-ctu h1 {
+        font-size: 3rem;
+        margin: 0 auto;
+        /* Remove margin to keep it in one line */
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 1rem;
+        /* Slightly larger font size */
+    }
+
+    .navbar {
+        padding: 1em 1.5em;
+    }
+
+    .logo img {
+        height: 2.8rem;
+        margin-right: 0.5em;
+    }
+
+    .school-ctu {
+        font-size: 0.8rem;
+    }
+
+    .items {
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    .dropdown {
+        /* Border for dropdown */
+        right: inherit;
+        top: -4.7rem;
+        /* Ensure it appears above other elements */
+    }
+
+    .items-lost-button,
+    .items-found-button {
+        padding: 0.5em;
+        font-size: 0.8rem;
+    }
+
+    .notification-label {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .notification-bell-btn .bell-badge {
+        font-size: 0.7rem;
+        height: 0.9rem;
+        width: 0.9rem;
+    }
+
+    .notification-container {
+        width: 20em;
+        top: -21rem;
+        left: -20.2rem;
+    }
+
+    .notification-content-container {
+        padding: 0.5em;
+
+    }
+
+    .notification-profile-pic {
+        width: 13%;
+        height: 2.3rem;
+        margin-right: 1rem;
+    }
+
+    .notification-username {
+        font-size: 0.7em;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .notification-action {
+        margin: 0;
+        font-size: 0.5em;
+    }
+
+    .notification-content-daysPass {
+        font-size: 0.5rem;
+    }
+
+    .dropdown-content {
+        width: 10em;
+    }
+
+    .dropdown-item {
+        cursor: pointer;
+        padding: 0.8em 1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease;
+        border-radius: 8px;
+
+    }
+
+    .dropdown-item:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+        border-radius: 8px;
+
+
+    }
+
+    .profile-pic {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+
+
+}
+
+/* xs */
+@media (max-width: 475px) {
+    .container {
+        width: 100%;
+        max-width: 475px;
+    }
+
+    .nav-bottom .container {
+        gap: 4rem;
+        padding-left: 4.4em;
+    }
+
+    .bottom-notif {
+        padding-left: 3em;
+    }
+
+
+    .background-ctu h1 {
+        font-size: 2.3rem;
+    }
+
+    /* Subtitle or Tagline */
+    .background-ctu p {
+        font-size: 0.9rem;
+        /* Slightly larger font size */
+
+    }
+
+    .navbar {
+        padding: 1em 1.5em;
+    }
+
+    .logo img {
+        height: 2.8rem;
+        margin-right: 0.5em;
+    }
+
+    .school-ctu {
+        font-size: 0.8rem;
+    }
+
+    .right-side-nav {
+        display: none;
+    }
+
+    .dropdown {
+        /* Border for dropdown */
+        right: inherit;
+        top: -4.7rem;
+        /* Ensure it appears above other elements */
+    }
+
+    .items-lost-button,
+    .items-found-button {
+        padding: 0.5em;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .notification-label {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .notification-bell-btn .bell-badge {
+        font-size: 0.7rem;
+        height: 0.9rem;
+        width: 0.9rem;
+    }
+
+    .notification-container {
+        width: 20em;
+        top: -21rem;
+        left: -20.2rem;
+    }
+
+    .notification-content-container {
+        padding: 0.5em;
+
+    }
+
+    .notification-profile-pic {
+        width: 13%;
+        height: 2.3rem;
+        margin-right: 1rem;
+    }
+
+    .notification-username {
+        font-size: 0.7em;
+        font-weight: bold;
+        margin-bottom: 0;
+    }
+
+    .notification-action {
+        margin: 0;
+        font-size: 0.5em;
+    }
+
+    .notification-content-daysPass {
+        font-size: 0.5rem;
+    }
+
+
+    /* settings */
+    .dropdown-content {
+        width: 8em;
+    }
+
+    .dropdown-item {
+        padding: 0.8em 1em;
+        font-size: 0.7rem;
+    }
+    .school-ctu {
+        font-size: 0.7rem;
+    }
+
+    .settings-btn i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:320px) {
+    .nav-bottom .container {
+        gap: 2rem;
+    }
+
+    .background-ctu h1 {
+        font-size: 1.5rem;
+    }
+
+    .background-ctu p {
+        font-size: 0.7rem;
+    }
+
+    .logo img {
+        height: 2.5rem;
+    }
+
+    .school-ctu {
+        font-size: 0.6rem;
+    }
+
+    .settings-btn i {
+        font-size: 1rem;
+    }
+
+}
