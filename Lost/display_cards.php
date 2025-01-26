@@ -29,11 +29,11 @@ foreach ($items as $item) {
     $dateReported = htmlspecialchars($item['date_reported']);
     ?>
     <div class="boxes-container" data-id="<?php echo $itemId; ?>">
-        <div class="item-lost-txt">Item Found:</div>
+        <div class="item-lost-txt">Item <?php echo $itemType ?>:</div>
         <div class="item-lost-name"><?php echo ucfirst($itemName); ?></div>
-        <div class="item-status">Status: <?php echo $itemType; ?></div>
+        <div class="item-status">Status: <?php echo ucfirst($itemType); ?></div>
         <div class="date-reported-text">Date: <?php echo $dateReported; ?></div>
-    </div>
+    </div>  
     <?php
 }
 

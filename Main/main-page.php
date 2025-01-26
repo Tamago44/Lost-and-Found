@@ -119,8 +119,7 @@ if (isset($_SESSION['name'])) {
                   </div>
                   <div class="settings">
                         <button class="settings-btn" id="settings-btn">
-                              <i class="fa-regular fa-bars"
-                                    ></i>
+                              <i class="fa-regular fa-bars"></i>
                         </button>
 
                         <div class="dropdown-content">
@@ -145,8 +144,7 @@ if (isset($_SESSION['name'])) {
                                     <a href="../Registration/login.html" class="dropdown-item">Log In</a>
                               <?php endif; ?>
                         </div>
-                  </div>
-                  </div>
+                              </div>
             </nav>
       </header>
       <div class="background-ctu">

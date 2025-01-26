@@ -6,7 +6,7 @@ $role = 'guest';
 
 // Check if logged in
 if (isset($_SESSION['role'])) {
-    $role = $_SESSION['role'];
+      $role = $_SESSION['role'];
 }
 ?>
 <!DOCTYPE html>
@@ -30,10 +30,10 @@ if (isset($_SESSION['role'])) {
 
 <body>
       <header>
-            <nav class="navbar">
+            <nav class="navbar container">
                   <div class="logo">
-                        <a href="../Main/main-page.php"><img class="logo-image"
-                                    src="../Reference/ctu-danao-logo.png" alt="CTU-Logo">
+                        <a href="main-page.html"><img class="logo-image" src="../Reference/ctu-danao-logo.png"
+                                    alt="CTU-Logo">
                         </a>
 
                         <div>
@@ -43,18 +43,17 @@ if (isset($_SESSION['role'])) {
 
                   </div>
                   <div class="right-side-nav">
-                        <div class="home me-5">
-                              <a href="../Main/main-page.php" class="nav-link">
-                                    <i class="fa-solid fa-house fs-5"></i>
-                              </a>
+                        <div class="home me-5"><a href="main-page.html" class="nav-link"><i
+                                          class="fa-solid fa-house fs-5"></i></a>
                         </div>
 
-                        <div class="items me-5"><a href="" class="nav-link">ITEMS &#x25BC;</a>
+                        <div class="items me-5" style="cursor: default;">
+                              <div class="nav-link">ITEMS &#x25BC;</div>
 
-                        <ul class="dropdown">
-                                    <li><a href="../Lost/Lost-page.php" ><button
+                              <ul class="dropdown">
+                                    <li><a href="../Lost/Lost-page.php" target="_blank"><button
                                                       class="items-lost-button">Lost</button></a></li>
-                                    <li><a href="../Found/Found-page.php" ><button
+                                    <li><a href="../Found/Found-page.php" target="_blank"><button
                                                       class="items-found-button">Found</button></a>
                                     </li>
                               </ul>
@@ -108,51 +107,60 @@ if (isset($_SESSION['role'])) {
                               </div>
 
                         </div>
-                        <div class="settings">
-                              <button class="settings-btn" id="settings-btn">
-                                    <i class="fa-regular fa-bars"
-                                          style="color:#2c3b80;font-size:30px;cursor: pointer;"></i>
-                              </button>
 
-                              <div class="dropdown-content">
-                                    <div class="dropdown-item">
-                                          <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
-                                                class="profile-pic">
-                                                <span>  <?= htmlspecialchars($role) ?> </span>
-                                    </div>
-                                    <a href="../Report-page/report-page.html" class="dropdown-item">Report</a>
-                                    <?php if ($role ==='user'): ?>
-                                          <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+
+                  </div>
+                  <div class="settings">
+                        <button class="settings-btn" id="settings-btn">
+                              <i class="fa-regular fa-bars"></i>
+                        </button>
+
+                        <div class="dropdown-content">
+                              <div class="dropdown-item">
+                                    <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
+                                          class="profile-pic">
+                                    <?php if ($role === 'user' || $role === 'admin'): ?>
+                                          <span> <?= htmlspecialchars($name) ?> </span>
                                     <?php elseif ($role === 'guest' || ''): ?>
-                                          <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                                          <span> <?= htmlspecialchars($role) ?> </span>
                                     <?php endif; ?>
-                                    </div>
+                              </div>
+                              <?php if ($role === 'user' || $role === 'admin'): ?>
+                                    <a href="../Report/report-page.php" class="dropdown-item">Report</a>
+                              <?php elseif ($role === 'guest' || ''): ?>
+                                    <a href="../Login/login-page.html" class="dropdown-item" onclick="alert('Please login to create report.'); return false;">Report</a>
+                              <?php endif; ?>
+
+                              <?php if ($role === 'user' || $role === 'admin'): ?>
+                                    <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
+                              <?php elseif ($role === 'guest' || ''): ?>
+                                    <a href="../Registration/login.html" class="dropdown-item">Log In</a>
+                              <?php endif; ?>
                         </div>
                   </div>
             </nav>
       </header>
-      <div class="whole-section">
+
+      <div class="whole-section container">
             <!-- Main Content -->
             <div class="wrapper-sections">
                   <div class="wrapper">
                         <!-- Text Container -->
-                        <section class="txt-container">
+                        <div class="txt-container">
                               <div class="line"></div>
-                              <h1 class="txt">LOST ITEMS</h1>
-                        </section>
+                              <div class="txt">LOST ITEMS</div>
+                        </div>
 
                         <!-- Section Container -->
-                        <section class="section-container">
-                              <div class="boxes-outer-container">
-                                    <!-- Include PHP File for Dynamic Content -->
-                                    <?php include "display_cards.php"; ?>
-                              </div>
+                        <div class="section-container">
+                              <!-- Include PHP File for Dynamic Content -->
+                              <?php include "display_cards.php"; ?>
                               <div class="overlay" id="overlay">
                                     <div class="overlay-content">
                                           <?php include "overlay.php"; ?>
                                     </div>
                               </div>
-                        </section>
+                        </div>
                   </div>
 
             </div>
@@ -163,8 +171,43 @@ if (isset($_SESSION['role'])) {
                   </div>
                   <div class="clock" id="clock"></div>
                   <div class="date-container">
-                        <p class="mb-0" id="weekday"></p>
-                        <p id="date"></p>
+                        <p class="weekday" id="weekday"></p>
+                        <p class="date" id="date"></p>
+                  </div>
+            </div>
+      </div>
+      <!-- FOR MEDIA QUERIES -->
+      <div class="nav-bottom">
+            <div class="container">
+
+                  <div class="bottom-items">
+                        <div class="items me-5" style="cursor: default;">
+                              <div class="nav-link">ITEMS &#x25BC;</div>
+
+                              <ul class="dropdown">
+                                    <li><a href="/Lost-page/Lost-page.html" target="_blank"><button
+                                                      class="items-lost-button">Lost</button></a></li>
+                                    <li><a href="/Found-page/Found-page.html" target="_blank"><button
+                                                      class="items-found-button">Found</button></a>
+                                    </li>
+                              </ul>
+
+                        </div>
+                  </div>
+
+                  <div class="bottom-home">
+                        <div class="home"><a href="main-page.html" class="nav-link"><i
+                                          class="fa-solid fa-house fs-5"></i></a>
+                        </div>
+                  </div>
+
+                  <div class="bottom-notif" id="notification-bottom">
+                        <div class="notification">
+                              <button class="notification-bell-btn" id="notification-bell-btn-screen"><i
+                                          class="fa-solid fa-bell fs-5"></i>
+                                    <div class="bell-badge">3</div>
+                              </button>
+                        </div>
                   </div>
             </div>
       </div>

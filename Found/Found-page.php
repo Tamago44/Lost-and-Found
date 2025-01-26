@@ -6,7 +6,7 @@ $role = 'guest';
 
 // Check if logged in
 if (isset($_SESSION['role'])) {
-    $role = $_SESSION['role'];
+      $role = $_SESSION['role'];
 }
 ?>
 <!DOCTYPE html>
@@ -22,19 +22,18 @@ if (isset($_SESSION['role'])) {
       <title>Lost & Found System</title>
       <!-- FONT AWESOME ICON -->
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="foundPage.css">
-    <link rel="stylesheet" href="found-date.css">
-    <link rel="stylesheet" href="foundsections.css">
-  
-</head>     
+      <!-- External CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="foundPage.css">
+      <link rel="stylesheet" href="foundSection.css">
+
+</head>
 
 
 <body>
       <header>
-            <nav class="navbar">
-            <div class="logo">
+            <nav class="navbar container">
+                  <div class="logo">
                         <a href="../Main/main-page.php"><img class="logo-image"
                                     src="../Reference/ctu-danao-logo.png" alt="CTU-Logo">
                         </a>
@@ -51,10 +50,10 @@ if (isset($_SESSION['role'])) {
 
                         <div class="items me-5"><a href="" class="nav-link">ITEMS &#x25BC;</a>
 
-                        <ul class="dropdown">
-                                    <li><a href="../Lost/Lost-page.php" ><button
+                              <ul class="dropdown">
+                                    <li><a href="../Lost/Lost-page.php"><button
                                                       class="items-lost-button">Lost</button></a></li>
-                                    <li><a href="../Found/Found-page.php" ><button
+                                    <li><a href="../Found/Found-page.php"><button
                                                       class="items-found-button">Found</button></a>
                                     </li>
                               </ul>
@@ -107,9 +106,9 @@ if (isset($_SESSION['role'])) {
 
                               </div>
 
-                        </div>
-
-                        <div class="settings">
+                        </div>                     
+                  </div>
+                  <div class="settings">
                               <button class="settings-btn" id="settings-btn">
                                     <i class="fa-regular fa-bars"
                                           style="color:#2c3b80;font-size:30px;cursor: pointer;"></i>
@@ -119,73 +118,105 @@ if (isset($_SESSION['role'])) {
                                     <div class="dropdown-item">
                                           <img src="../Reference/ctu-danao-campus.jpg" alt="Profile Picture"
                                                 class="profile-pic">
-                                                <span>  <?= htmlspecialchars($role) ?> </span>
+                                          <span> <?= htmlspecialchars($role) ?> </span>
                                     </div>
                                     <a href="../Report-page/report-page.html" class="dropdown-item">Report</a>
-                                    <?php if ($role ==='user'): ?>
+                                    <?php if ($role === 'user'): ?>
                                           <a href="../Registration/logout.php" class="dropdown-item">Log Out</a>
                                     <?php elseif ($role === 'guest' || ''): ?>
                                           <a href="../Registration/login.html" class="dropdown-item">Log In</a>
                                     <?php endif; ?>
                               </div>
                         </div>
-                  </div>
             </nav>
       </header>
-      <div class="whole-section">
+      <div class="whole-section container">
             <!-- Main Content -->
             <div class="wrapper-sections">
-                <div class="wrapper">
-                    <!-- Text Container -->
-                    <section class="txt-container">
-                        <div class="line"></div>
-                        <h1 class="txt">FOUND ITEMS</h1>
-                    </section>
-                    
-                    <!-- Section Container -->
-                    <section class="section-container">
-                        <div class="boxes-outer-container">
-                            <!-- Include PHP File for Dynamic Content -->
-                            <?php include "display_cards.php"; ?>
+                  <div class="wrapper">
+                        <!-- Text Container -->
+                        <div class="txt-container">
+                              <div class="line"></div>
+                              <div class="txt">FOUND ITEMS</div>
                         </div>
-                        <div class="overlay" id="overlay">
-                              <div class="overlay-content">
-                                    <?php include "overlay.php"; ?>
-                              
+
+                        <!-- Section Container -->
+                        <div class="section-container">
+                              <!-- Include PHP File for Dynamic Content -->
+                              <?php include "display_cards.php"; ?>
+                              <div class="overlay" id="overlay">
+                                    <div class="overlay-content">
+                                          <?php include "overlay.php"; ?>
+
+                                    </div>
                               </div>
                         </div>
-                    </section>
-                </div>
-                
+                  </div>
+
             </div>
-            <!-- RIGHT SECTION -->
-                <div class="right-section">
-                          <div class="searchbar"><input class="search-item" type="text" placeholder="Search Lost Item...">
-                                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                          </div>
-                          <div class="clock" id="clock"></div>
-                          <div class="date-container">
-                                <p class="mb-0"id="weekday"></p>
-                                <p id="date"></p>
-                            </div>
-                    </div>
-         </div>
-         <!-- Bootsrap JS -->
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-              <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-                    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-                    crossorigin="anonymous"></script>
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-                    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-                    crossorigin="anonymous"></script>
-              <!-- CLOCK JS -->
-              <script src="clock.js"></script>
-              <!-- DATE JS -->
-              <script src="date.js"></script>
-              <!-- LOST PAGE JS -->
-               <script src="foundPage.js"></script>
-               <!-- GET ALL DETAILS JS -->
-                <script src="displayFullDetails.js"></script>
+           <!-- RIGHT SECTION -->
+           <div class="right-section">
+                  <div class="searchbar"><input class="search-item" type="text" placeholder="Search Lost Item...">
+                        <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  </div>
+                  <div class="clock" id="clock"></div>
+                  <div class="date-container">
+                        <p class="weekday" id="weekday"></p>
+                        <p class="date" id="date"></p>
+                  </div>
+            </div>
+      </div>
+        <!-- FOR MEDIA QUERIES -->
+        <div class="nav-bottom">
+            <div class="container">
+
+                  <div class="bottom-items">
+                        <div class="items me-5" style="cursor: default;">
+                              <div class="nav-link">ITEMS &#x25BC;</div>
+
+                              <ul class="dropdown">
+                                    <li><a href="/Lost-page/Lost-page.html" target="_blank"><button
+                                                      class="items-lost-button">Lost</button></a></li>
+                                    <li><a href="/Found-page/Found-page.html" target="_blank"><button
+                                                      class="items-found-button">Found</button></a>
+                                    </li>
+                              </ul>
+
+                        </div>
+                  </div>
+
+                  <div class="bottom-home">
+                        <div class="home"><a href="main-page.html" class="nav-link"><i
+                                          class="fa-solid fa-house fs-5"></i></a>
+                        </div>
+                  </div>
+
+                  <div class="bottom-notif" id="notification-bottom">
+                        <div class="notification">
+                              <button class="notification-bell-btn" id="notification-bell-btn-screen"><i
+                                          class="fa-solid fa-bell fs-5"></i>
+                                    <div class="bell-badge">3</div>
+                              </button>
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <!-- Bootsrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+      <!-- CLOCK JS -->
+      <script src="clock.js"></script>
+      <!-- DATE JS -->
+      <script src="date.js"></script>
+      <!-- LOST PAGE JS -->
+      <script src="foundPage.js"></script>
+      <!-- GET ALL DETAILS JS -->
+      <script src="displayFullDetails.js"></script>
 </body>
 
 </html>

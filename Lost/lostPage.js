@@ -97,7 +97,6 @@ function openSettings(){
 
 // Ensure the function runs after the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', ()=>{
- 
   openNotification();
   openSettings(); 
 });
